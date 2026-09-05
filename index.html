@@ -3,20 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Mkrtchyan-Artak Mkrtchyan — Shopify Developer & E-commerce Specialist</title>
-  <meta name="description" content="Mkrtchyan-Artak Mkrtchyan — Shopify Developer and E-commerce Specialist specializing in Shopify development, store management, CRO, landing pages, product listings and theme customization.">
-  
+
+  <meta
+    name="description"
+    content="Mkrtchyan-Artak Mkrtchyan — Shopify Developer and E-commerce Specialist specializing in Shopify development, store management, CRO, landing pages, product listings and theme customization."
+  >
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
+
     :root {
       --black: #000000;
       --dark: #0a0a0a;
       --dark-2: #141414;
       --dark-3: #1a1a1a;
+
       --white: #ffffff;
+
       --gray-100: #f5f5f5;
       --gray-200: #e5e5e5;
       --gray-300: #d4d4d4;
@@ -28,15 +40,18 @@
       --gray-900: #171717;
     }
 
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
+
 
     body {
       font-family: 'Inter', sans-serif;
@@ -46,33 +61,49 @@
       overflow-x: hidden;
     }
 
+
     a {
       color: inherit;
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
-    button, input, textarea {
+
+    button,
+    input,
+    textarea {
       font-family: inherit;
     }
+
 
     .container {
       width: min(1280px, 90%);
       margin: 0 auto;
     }
 
-    /* HEADER */
+
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
     header {
       position: fixed;
       width: 100%;
       top: 0;
       left: 0;
+
       z-index: 100;
+
       padding: 24px 0;
+
       background: rgba(0, 0, 0, 0.95);
+
       backdrop-filter: blur(10px);
+
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
+
 
     .nav {
       display: flex;
@@ -80,1180 +111,2320 @@
       justify-content: space-between;
     }
 
+
     .logo {
       font-family: 'Space Grotesk', sans-serif;
+
       font-size: 22px;
+
       font-weight: 700;
+
       letter-spacing: -0.5px;
+
       color: var(--white);
     }
+
 
     .logo span {
       color: var(--gray-400);
     }
 
+
     .nav-links {
       display: flex;
+
       align-items: center;
+
       gap: 36px;
+
       list-style: none;
+
       color: var(--gray-400);
+
       font-size: 14px;
+
       font-weight: 500;
     }
+
 
     .nav-links a:hover {
       color: var(--white);
     }
 
+
     .nav-cta {
       padding: 10px 22px;
+
       border: 1px solid rgba(255, 255, 255, 0.25);
+
       border-radius: 100px;
+
       color: var(--white);
+
       transition: all 0.3s ease;
     }
+
 
     .nav-cta:hover {
       background: var(--white);
+
       border-color: var(--white);
+
       color: var(--black);
     }
 
-    /* HERO */
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
     .hero {
       min-height: 100vh;
+
       display: flex;
+
       align-items: center;
+
       position: relative;
+
       overflow: hidden;
+
       background: var(--black);
+
       padding-top: 80px;
     }
 
+
     .hero::before {
       content: "";
+
       position: absolute;
+
       width: 800px;
+
       height: 800px;
+
       right: -300px;
+
       top: -200px;
+
       border: 1px solid rgba(255, 255, 255, 0.04);
+
       border-radius: 50%;
+
       pointer-events: none;
     }
+
 
     .hero::after {
       content: "";
+
       position: absolute;
+
       width: 500px;
+
       height: 500px;
+
       right: -150px;
+
       top: -100px;
+
       border: 1px solid rgba(255, 255, 255, 0.03);
+
       border-radius: 50%;
+
       pointer-events: none;
     }
 
+
     .hero-content {
       position: relative;
+
       z-index: 2;
+
       max-width: 1000px;
     }
 
+
     .hero-tag {
       display: inline-flex;
+
       align-items: center;
+
       gap: 10px;
+
       margin-bottom: 32px;
+
       padding: 10px 18px;
+
       border: 1px solid rgba(255, 255, 255, 0.2);
+
       border-radius: 100px;
+
       background: rgba(255, 255, 255, 0.03);
+
       color: var(--gray-300);
+
       font-size: 13px;
+
       font-weight: 600;
+
       letter-spacing: 0.5px;
     }
 
+
     .hero-dot {
       width: 8px;
+
       height: 8px;
+
       border-radius: 50%;
+
       background: var(--white);
+
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+
       animation: pulse 2s ease-in-out infinite;
     }
 
+
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
+
     }
+
 
     .hero h1 {
       font-family: 'Space Grotesk', sans-serif;
+
       font-size: clamp(48px, 7vw, 96px);
+
       line-height: 0.95;
+
       letter-spacing: -4px;
+
       font-weight: 700;
+
       margin-bottom: 28px;
+
       color: var(--white);
     }
+
 
     .hero h1 .accent {
       color: var(--white);
+
       font-style: italic;
+
       font-weight: 500;
     }
+
 
     .hero-description {
       max-width: 640px;
+
       color: var(--gray-400);
+
       font-size: 18px;
+
       line-height: 1.7;
+
       margin-bottom: 42px;
     }
 
+
     .hero-buttons {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 16px;
     }
 
+
     .button {
       display: inline-flex;
+
       align-items: center;
+
       justify-content: center;
+
       min-height: 52px;
+
       padding: 0 28px;
+
       border-radius: 100px;
+
       font-size: 14px;
+
       font-weight: 600;
+
       transition: all 0.3s ease;
+
       cursor: pointer;
     }
 
+
     .button-primary {
       background: var(--white);
+
       color: var(--black);
+
       border: none;
     }
 
+
     .button-primary:hover {
       background: var(--gray-200);
+
       transform: translateY(-2px);
+
       box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
     }
 
+
     .button-outline {
       border: 1px solid rgba(255, 255, 255, 0.25);
+
       color: var(--white);
+
       background: transparent;
     }
 
+
     .button-outline:hover {
       background: var(--white);
+
       color: var(--black);
+
       transform: translateY(-2px);
     }
 
-    /* HERO STATS */
+
+
+    /* =========================================
+       HERO STATS
+    ========================================= */
+
     .hero-stats {
       display: flex;
+
       gap: 60px;
+
       margin-top: 80px;
+
       padding-top: 32px;
+
       border-top: 1px solid rgba(255, 255, 255, 0.1);
+
       max-width: 800px;
     }
 
+
     .stat strong {
       display: block;
+
       font-family: 'Space Grotesk', sans-serif;
+
       font-size: 28px;
+
       font-weight: 700;
+
       margin-bottom: 4px;
+
       color: var(--white);
     }
 
+
     .stat span {
       color: var(--gray-500);
+
       font-size: 12px;
+
       text-transform: uppercase;
+
       letter-spacing: 1px;
+
       font-weight: 500;
     }
 
-    /* SECTIONS */
+
+
+    /* =========================================
+       SECTIONS
+    ========================================= */
+
     .section {
       padding: 120px 0;
     }
 
+
     .section-label {
       margin-bottom: 20px;
+
       color: var(--gray-400);
+
       font-size: 12px;
+
       font-weight: 700;
+
       text-transform: uppercase;
+
       letter-spacing: 2px;
+
       display: flex;
+
       align-items: center;
+
       gap: 12px;
     }
 
+
     .section-label::after {
       content: "";
+
       display: block;
+
       width: 30px;
+
       height: 1px;
+
       background: var(--gray-600);
     }
 
+
     .section-title {
       max-width: 800px;
+
       font-family: 'Space Grotesk', sans-serif;
+
       font-size: clamp(36px, 5vw, 64px);
+
       line-height: 1.05;
+
       letter-spacing: -3px;
+
       font-weight: 700;
+
       color: var(--white);
     }
 
-    /* ABOUT */
+
+
+    /* =========================================
+       ABOUT
+    ========================================= */
+
     .about {
       background: var(--black);
+
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+
     .about-grid {
       display: grid;
+
       grid-template-columns: 0.9fr 1.1fr;
+
       gap: 80px;
+
       align-items: start;
     }
 
+
     .about-intro {
       position: sticky;
+
       top: 120px;
     }
 
+
     .about-text {
       color: var(--gray-400);
+
       font-size: 17px;
+
       line-height: 1.8;
+
       margin-bottom: 20px;
     }
 
+
     .about-highlight {
       margin-top: 40px;
+
       padding: 24px 28px;
+
       border-left: 2px solid var(--white);
+
       background: rgba(255, 255, 255, 0.03);
     }
 
+
     .about-highlight strong {
       display: block;
+
       font-family: 'Space Grotesk', sans-serif;
+
       font-size: 18px;
+
       margin-bottom: 6px;
+
       color: var(--white);
     }
 
+
     .about-highlight span {
       color: var(--gray-500);
+
       font-size: 14px;
     }
 
-    /* SERVICES */
+
+
+    /* =========================================
+       SERVICES
+    ========================================= */
+
     .services {
       background: var(--dark);
     }
 
+
     .services-heading {
       display: flex;
+
       justify-content: space-between;
+
       align-items: end;
+
       gap: 40px;
+
       margin-bottom: 70px;
     }
+
 
     .services-description {
       max-width: 420px;
+
       color: var(--gray-400);
+
       font-size: 15px;
+
       line-height: 1.7;
     }
 
+
     .service-grid {
       display: grid;
+
       grid-template-columns: repeat(4, 1fr);
+
       gap: 16px;
     }
 
+
     .service-card {
       min-height: 280px;
+
       display: flex;
+
       flex-direction: column;
+
       justify-content: space-between;
+
       padding: 30px;
+
       background: var(--black);
+
       border: 1px solid rgba(255, 255, 255, 0.1);
+
       transition: all 0.4s ease;
+
       cursor: pointer;
     }
 
+
     .service-card:hover {
       transform: translateY(-8px);
+
       border-color: rgba(255, 255, 255, 0.3);
+
       background: var(--dark-2);
     }
 
+
     .service-number {
       color: var(--gray-600);
+
       font-size: 11px;
+
       font-weight: 700;
+
       letter-spacing: 1px;
     }
 
+
     .service-icon {
       width: 48px;
+
       height: 48px;
+
       margin-top: auto;
+
       margin-bottom: 24px;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       border-radius: 12px;
+
       background: var(--white);
+
       color: var(--black);
+
       font-family: 'Space Grotesk', sans-serif;
+
       font-size: 20px;
+
       font-weight: 700;
     }
 
+
     .service-card h3 {
       font-family: 'Space Grotesk', sans-serif;
+
       font-size: 18px;
+
       line-height: 1.3;
+
       margin-bottom: 10px;
+
       color: var(--white);
     }
 
+
     .service-card p {
       color: var(--gray-500);
+
       font-size: 13px;
+
       line-height: 1.6;
     }
 
-    /* EXPERTISE */
+
+
+    /* =========================================
+       EXPERTISE
+    ========================================= */
+
     .expertise {
       background: var(--black);
+
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+
     .expertise-header {
       display: flex;
+
       justify-content: space-between;
+
       align-items: end;
+
       gap: 60px;
+
       margin-bottom: 70px;
     }
 
+
     .expertise-intro {
       max-width: 330px;
+
       color: var(--gray-400);
+
       font-size: 14px;
+
       line-height: 1.8;
     }
+
 
     .expertise-list {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+
     .expertise-item {
       display: grid;
+
       grid-template-columns: 80px 1fr 280px;
+
       align-items: center;
+
       gap: 30px;
+
       padding: 30px 0;
+
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
       transition: all 0.3s ease;
     }
 
+
     .expertise-item:hover {
       padding-left: 12px;
+
       background: rgba(255, 255, 255, 0.02);
     }
 
+
     .expertise-number {
       color: var(--gray-600);
+
       font-size: 12px;
+
       font-weight: 600;
     }
+
 
     .expertise-item h3 {
       font-family: 'Space Grotesk', sans-serif;
+
       font-size: 22px;
+
       font-weight: 600;
+
       color: var(--white);
     }
 
+
     .expertise-item p {
       color: var(--gray-500);
+
       font-size: 13px;
+
       line-height: 1.6;
     }
 
-    /* PROCESS */
+
+
+    /* =========================================
+       PROCESS
+    ========================================= */
+
     .process {
       background: var(--dark);
     }
 
+
     .process-grid {
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       gap: 80px;
     }
+
 
     .process-list {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+
     .process-item {
       display: grid;
+
       grid-template-columns: 60px 1fr;
+
       gap: 24px;
+
       padding: 30px 0;
+
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
       transition: all 0.3s ease;
     }
+
 
     .process-item:hover {
       padding-left: 10px;
     }
 
+
     .process-number {
       color: var(--gray-400);
+
       font-size: 13px;
+
       font-weight: 700;
     }
+
 
     .process-item h3 {
       font-family: 'Space Grotesk', sans-serif;
+
       font-size: 20px;
+
       font-weight: 600;
+
       margin-bottom: 8px;
+
       color: var(--white);
     }
+
 
     .process-item p {
       color: var(--gray-500);
+
       font-size: 14px;
+
       line-height: 1.6;
     }
 
-    /* CTA */
+
+
+    /* =========================================
+       CTA
+    ========================================= */
+
     .cta {
       padding: 120px 0;
+
       background: var(--black);
     }
+
 
     .cta-box {
       position: relative;
+
       overflow: hidden;
+
       padding: 100px 60px;
+
       background: var(--dark);
+
       border: 1px solid rgba(255, 255, 255, 0.1);
+
       text-align: center;
     }
 
+
     .cta-box::before {
       content: "";
+
       position: absolute;
+
       width: 600px;
+
       height: 600px;
+
       border: 1px solid rgba(255, 255, 255, 0.06);
+
       border-radius: 50%;
+
       left: 50%;
+
       top: 50%;
+
       transform: translate(-50%, -50%);
     }
 
+
     .cta-content {
       position: relative;
+
       z-index: 2;
     }
 
+
     .cta-box h2 {
       max-width: 800px;
+
       margin: 0 auto 24px;
+
       font-family: 'Space Grotesk', sans-serif;
+
       font-size: clamp(36px, 5vw, 64px);
+
       line-height: 1.05;
+
       letter-spacing: -3px;
+
       font-weight: 700;
+
       color: var(--white);
     }
+
 
     .cta-box p {
       max-width: 570px;
+
       margin: 0 auto 36px;
+
       color: var(--gray-400);
+
       font-size: 16px;
+
       line-height: 1.7;
     }
 
-    /* CONTACT */
+
+
+    /* =========================================
+       CONTACT
+    ========================================= */
+
     .contact {
       background: var(--black);
+
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+
     .contact-grid {
       display: grid;
+
       grid-template-columns: 0.85fr 1.15fr;
+
       gap: 80px;
     }
 
+
     .contact-description {
       max-width: 430px;
+
       color: var(--gray-400);
+
       font-size: 16px;
+
       line-height: 1.8;
+
       margin-top: 28px;
     }
 
+
     .contact-links {
       display: grid;
+
       gap: 18px;
+
       margin-top: 44px;
     }
 
+
     .contact-link {
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
       max-width: 430px;
+
       padding-bottom: 18px;
+
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
       font-size: 14px;
+
       font-weight: 600;
+
       color: var(--white);
+
       transition: all 0.3s ease;
     }
 
+
     .contact-link:hover {
       color: var(--gray-200);
+
       padding-left: 8px;
     }
 
+
     .contact-link span:last-child {
       color: var(--gray-500);
+
       font-size: 13px;
     }
 
+
     .contact-form {
       display: grid;
+
       gap: 18px;
     }
 
+
     .form-row {
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       gap: 18px;
     }
+
 
     .contact-form input,
     .contact-form textarea {
       width: 100%;
+
       padding: 18px 20px;
+
       border: 1px solid rgba(255, 255, 255, 0.12);
+
       border-radius: 8px;
+
       outline: none;
+
       background: var(--dark-2);
+
       color: var(--white);
+
       font-size: 14px;
+
       transition: all 0.3s ease;
     }
+
 
     .contact-form input:focus,
     .contact-form textarea:focus {
       border-color: var(--white);
+
       background: var(--dark-3);
     }
+
 
     .contact-form input::placeholder,
     .contact-form textarea::placeholder {
       color: var(--gray-600);
     }
 
+
     .contact-form textarea {
       min-height: 180px;
+
       resize: vertical;
     }
 
+
     .submit-button {
       border: none;
+
       cursor: pointer;
+
       background: var(--white);
+
       color: var(--black);
+
       font-weight: 600;
     }
 
+
     .submit-button:hover {
       background: var(--gray-200);
+
       transform: translateY(-2px);
+
       box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
     }
 
-    /* FOOTER */
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
     footer {
       padding: 40px 0;
+
       background: var(--black);
+
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+
     .footer-inner {
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
       gap: 25px;
     }
 
+
     .footer-logo {
       font-family: 'Space Grotesk', sans-serif;
+
       font-weight: 700;
+
       font-size: 20px;
+
       color: var(--white);
     }
+
 
     .footer-logo span {
       color: var(--gray-400);
     }
 
+
     .footer-copy {
       color: var(--gray-500);
+
       font-size: 13px;
     }
 
+
     .footer-socials {
       display: flex;
+
       gap: 20px;
+
       color: var(--gray-400);
+
       font-size: 13px;
+
       font-weight: 500;
     }
+
 
     .footer-socials a:hover {
       color: var(--white);
     }
 
-    /* RESPONSIVE */
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
     @media (max-width: 1024px) {
+
       .service-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
 
       .about-grid,
       .process-grid,
       .contact-grid {
         grid-template-columns: 1fr;
+
         gap: 60px;
       }
+
 
       .about-intro {
         position: static;
       }
 
+
       .expertise-item {
         grid-template-columns: 60px 1fr;
       }
 
+
       .expertise-item p {
         grid-column: 2;
       }
+
     }
 
+
+
     @media (max-width: 768px) {
+
       header {
         padding: 18px 0;
       }
+
 
       .nav-links li:not(:last-child) {
         display: none;
       }
 
+
       .hero {
         min-height: 90vh;
       }
 
+
       .hero h1 {
         font-size: clamp(40px, 10vw, 64px);
+
         letter-spacing: -3px;
       }
+
 
       .hero-description {
         font-size: 16px;
       }
 
+
       .hero-stats {
         gap: 30px;
+
         margin-top: 60px;
       }
+
 
       .stat strong {
         font-size: 22px;
       }
 
+
       .section {
         padding: 80px 0;
       }
+
 
       .services-heading,
       .expertise-header {
         display: block;
       }
 
+
       .services-description,
       .expertise-intro {
         margin-top: 24px;
       }
 
+
       .section-title {
         letter-spacing: -2px;
       }
+
 
       .cta {
         padding: 80px 0;
       }
 
+
       .cta-box {
         padding: 70px 30px;
       }
+
 
       .contact-grid {
         gap: 50px;
       }
 
+
       .form-row {
         grid-template-columns: 1fr;
       }
 
+
       .footer-inner {
         flex-direction: column;
+
         text-align: center;
       }
+
     }
 
+
+
     @media (max-width: 520px) {
+
       .container {
         width: min(92%, 1280px);
       }
+
 
       .logo {
         font-size: 19px;
       }
 
+
       .hero h1 {
         font-size: 40px;
+
         letter-spacing: -2px;
       }
 
+
       .hero-buttons {
         flex-direction: column;
+
         align-items: stretch;
       }
+
 
       .hero-buttons .button {
         width: 100%;
       }
 
+
       .hero-stats {
         flex-wrap: wrap;
+
         gap: 25px;
       }
+
 
       .service-grid {
         grid-template-columns: 1fr;
       }
 
+
       .service-card {
         min-height: 240px;
       }
 
+
       .expertise-item {
         grid-template-columns: 40px 1fr;
+
         gap: 15px;
       }
+
 
       .expertise-item h3 {
         font-size: 18px;
       }
 
+
       .expertise-item p {
         grid-column: 2;
       }
 
+
       .cta-box h2 {
         font-size: 36px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
+
+  <!-- =========================================
+       HEADER
+  ========================================= -->
+
   <header>
+
     <div class="container nav">
-      <a href="#" class="logo">M-ARTAK<span>.</span></a>
+
+      <a href="#" class="logo">
+        M-ARTAK<span>.</span>
+      </a>
+
+
       <nav>
+
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#contact" class="nav-cta">Let's Work Together</a></li>
+
+          <li>
+            <a href="#about">About</a>
+          </li>
+
+          <li>
+            <a href="#services">Services</a>
+          </li>
+
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+
+          <li>
+            <a href="#contact" class="nav-cta">
+              Let's Work Together
+            </a>
+          </li>
+
         </ul>
+
       </nav>
+
     </div>
+
   </header>
 
+
+
   <main>
-    <!-- HERO -->
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
     <section class="hero">
+
       <div class="container">
+
         <div class="hero-content">
+
+
           <div class="hero-tag">
+
             <span class="hero-dot"></span>
+
             Shopify & E-commerce Specialist
+
           </div>
 
+
+
           <h1>
-            I build Shopify<br>stores that <span class="accent">convert.</span>
+            I build Shopify<br>
+            stores that <span class="accent">convert.</span>
           </h1>
+
+
 
           <p class="hero-description">
             I'm Mkrtchyan-Artak Mkrtchyan, a Shopify Developer and E-commerce Specialist focused on building, managing and optimizing professional Shopify stores.
           </p>
 
+
+
           <div class="hero-buttons">
-            <a href="#services" class="button button-primary">View Services</a>
-            <a href="#contact" class="button button-outline">Let's Work Together</a>
+
+            <a href="#services" class="button button-primary">
+              View Services
+            </a>
+
+            <a href="#contact" class="button button-outline">
+              Let's Work Together
+            </a>
+
           </div>
+
+
 
           <div class="hero-stats">
+
+
             <div class="stat">
+
               <strong>Shopify</strong>
+
               <span>Specialized</span>
+
             </div>
+
+
+
             <div class="stat">
+
               <strong>E-commerce</strong>
+
               <span>Focused</span>
+
             </div>
+
+
+
             <div class="stat">
+
               <strong>CRO</strong>
+
               <span>Conversion</span>
+
             </div>
+
+
+
             <div class="stat">
+
               <strong>100%</strong>
+
               <span>Responsive</span>
+
             </div>
+
+
           </div>
+
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- ABOUT -->
+
+
+    <!-- =========================================
+         ABOUT
+    ========================================= -->
+
     <section class="section about" id="about">
+
       <div class="container about-grid">
+
+
         <div class="about-intro">
-          <div class="section-label">About Me</div>
-          <h2 class="section-title">Shopify is more than a platform.</h2>
+
+          <div class="section-label">
+            About Me
+          </div>
+
+          <h2 class="section-title">
+            Shopify is more than a platform.
+          </h2>
+
         </div>
 
+
+
         <div>
+
           <p class="about-text">
             I'm a Shopify Developer and E-commerce Specialist focused on helping businesses create professional and effective online stores.
           </p>
+
+
           <p class="about-text">
             My work covers the full Shopify workflow — from store setup and theme customization to product uploads, landing page development, store management and conversion optimization.
           </p>
+
+
           <p class="about-text">
             I focus on clean design, responsive layouts, practical functionality and details that create a better customer experience.
           </p>
 
+
+
           <div class="about-highlight">
-            <strong>Shopify Development + E-commerce</strong>
-            <span>Building, managing and optimizing online stores.</span>
+
+            <strong>
+              Shopify Development + E-commerce
+            </strong>
+
+            <span>
+              Building, managing and optimizing online stores.
+            </span>
+
           </div>
+
+
         </div>
+
+
       </div>
+
     </section>
 
-    <!-- SERVICES -->
+
+
+    <!-- =========================================
+         SERVICES
+    ========================================= -->
+
     <section class="section services" id="services">
+
       <div class="container">
+
+
         <div class="services-heading">
+
+
           <div>
-            <div class="section-label">What I Do</div>
-            <h2 class="section-title">Services built around Shopify.</h2>
+
+            <div class="section-label">
+              What I Do
+            </div>
+
+            <h2 class="section-title">
+              Services built around Shopify.
+            </h2>
+
           </div>
+
+
           <p class="services-description">
             From the first store setup to ongoing optimization, I can handle the essential parts of your Shopify and e-commerce workflow.
           </p>
+
+
         </div>
+
+
 
         <div class="service-grid">
-          <article class="service-card">
-            <span class="service-number">01 / 08</span>
-            <div class="service-icon">S</div>
-            <div>
-              <h3>Shopify Development</h3>
-              <p>Custom Shopify pages, sections, layouts and functionality.</p>
-            </div>
-          </article>
+
+
+          <!-- 01 -->
 
           <article class="service-card">
-            <span class="service-number">02 / 08</span>
-            <div class="service-icon">M</div>
-            <div>
-              <h3>Shopify Store Manager</h3>
-              <p>Store updates, content management, products and day-to-day operations.</p>
+
+            <span class="service-number">
+              01 / 08
+            </span>
+
+            <div class="service-icon">
+              S
             </div>
+
+            <div>
+
+              <h3>
+                Shopify Development
+              </h3>
+
+              <p>
+                Custom Shopify pages, sections, layouts and functionality.
+              </p>
+
+            </div>
+
           </article>
 
-          <article class="service-card">
-            <span class="service-number">03 / 08</span>
-            <div class="service-icon">E</div>
-            <div>
-              <h3>E-commerce Manager</h3>
-              <p>Managing the structure, content and customer-facing experience of your store.</p>
-            </div>
-          </article>
+
+
+          <!-- 02 -->
 
           <article class="service-card">
-            <span class="service-number">04 / 08</span>
-            <div class="service-icon">P</div>
-            <div>
-              <h3>Product Upload & Listing</h3>
-              <p>Product uploads, descriptions, variants, images, tags and organization.</p>
+
+            <span class="service-number">
+              02 / 08
+            </span>
+
+            <div class="service-icon">
+              M
             </div>
+
+            <div>
+
+              <h3>
+                Shopify Store Manager
+              </h3>
+
+              <p>
+                Store updates, content management, products and day-to-day operations.
+              </p>
+
+            </div>
+
           </article>
 
-          <article class="service-card">
-            <span class="service-number">05 / 08</span>
-            <div class="service-icon">L</div>
-            <div>
-              <h3>Landing Page Development</h3>
-              <p>High-quality landing pages designed around clarity and conversions.</p>
-            </div>
-          </article>
+
+
+          <!-- 03 -->
 
           <article class="service-card">
-            <span class="service-number">06 / 08</span>
-            <div class="service-icon">C</div>
-            <div>
-              <h3>CRO</h3>
-              <p>Improving layouts, content and customer journeys to increase conversions.</p>
+
+            <span class="service-number">
+              03 / 08
+            </span>
+
+            <div class="service-icon">
+              E
             </div>
+
+            <div>
+
+              <h3>
+                E Commerce Manager
+              </h3>
+
+              <p>
+                Managing the structure, content and customer-facing experience of your store.
+              </p>
+
+            </div>
+
           </article>
 
-          <article class="service-card">
-            <span class="service-number">07 / 08</span>
-            <div class="service-icon">+</div>
-            <div>
-              <h3>Shopify Store Setup</h3>
-              <p>Initial Shopify configuration, structure, navigation and essential settings.</p>
-            </div>
-          </article>
+
+
+          <!-- 04 -->
 
           <article class="service-card">
-            <span class="service-number">08 / 08</span>
-            <div class="service-icon">T</div>
-            <div>
-              <h3>Shopify Theme Edits</h3>
-              <p>Theme customization, Liquid, CSS, responsive layouts and visual improvements.</p>
+
+            <span class="service-number">
+              04 / 08
+            </span>
+
+            <div class="service-icon">
+              P
             </div>
+
+            <div>
+
+              <h3>
+                Product Upload/Product Listing
+              </h3>
+
+              <p>
+                Product uploads, descriptions, variants, images, tags and organization.
+              </p>
+
+            </div>
+
           </article>
+
+
+
+          <!-- 05 -->
+
+          <article class="service-card">
+
+            <span class="service-number">
+              05 / 08
+            </span>
+
+            <div class="service-icon">
+              L
+            </div>
+
+            <div>
+
+              <h3>
+                Landing Page Development
+              </h3>
+
+              <p>
+                High-quality landing pages designed around clarity and conversions.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 06 -->
+
+          <article class="service-card">
+
+            <span class="service-number">
+              06 / 08
+            </span>
+
+            <div class="service-icon">
+              C
+            </div>
+
+            <div>
+
+              <h3>
+                CRO
+              </h3>
+
+              <p>
+                Improving layouts, content and customer journeys to increase conversions.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 07 -->
+
+          <article class="service-card">
+
+            <span class="service-number">
+              07 / 08
+            </span>
+
+            <div class="service-icon">
+              +
+            </div>
+
+            <div>
+
+              <h3>
+                Shopify Store Setup
+              </h3>
+
+              <p>
+                Initial Shopify configuration, structure, navigation and essential settings.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 08 -->
+
+          <article class="service-card">
+
+            <span class="service-number">
+              08 / 08
+            </span>
+
+            <div class="service-icon">
+              T
+            </div>
+
+            <div>
+
+              <h3>
+                Shopify Theme Edits
+              </h3>
+
+              <p>
+                Theme customization, Liquid, CSS, responsive layouts and visual improvements.
+              </p>
+
+            </div>
+
+          </article>
+
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- EXPERTISE -->
+
+
+    <!-- =========================================
+         EXPERTISE
+    ========================================= -->
+
     <section class="section expertise">
+
       <div class="container">
+
+
         <div class="expertise-header">
+
+
           <div>
-            <div class="section-label">Expertise</div>
-            <h2 class="section-title">Focused on every important part of a Shopify store.</h2>
+
+            <div class="section-label">
+              Expertise
+            </div>
+
+            <h2 class="section-title">
+              Focused on every important part of a Shopify store.
+            </h2>
+
           </div>
+
+
           <p class="expertise-intro">
             A combination of technical Shopify skills, e-commerce knowledge and attention to customer experience.
           </p>
+
+
         </div>
+
+
 
         <div class="expertise-list">
-          <div class="expertise-item">
-            <span class="expertise-number">01</span>
-            <h3>Store Structure</h3>
-            <p>Navigation, collections, products, pages and store organization.</p>
-          </div>
+
 
           <div class="expertise-item">
-            <span class="expertise-number">02</span>
-            <h3>Shopify Theme Customization</h3>
-            <p>Liquid, HTML, CSS, responsive design and custom sections.</p>
+
+            <span class="expertise-number">
+              01
+            </span>
+
+            <h3>
+              Store Structure
+            </h3>
+
+            <p>
+              Navigation, collections, products, pages and store organization.
+            </p>
+
           </div>
 
-          <div class="expertise-item">
-            <span class="expertise-number">03</span>
-            <h3>Product Management</h3>
-            <p>Product listings, variants, images, descriptions, tags and collections.</p>
-          </div>
+
 
           <div class="expertise-item">
-            <span class="expertise-number">04</span>
-            <h3>Conversion Optimization</h3>
-            <p>Better hierarchy, UX, CTAs and customer-focused landing pages.</p>
+
+            <span class="expertise-number">
+              02
+            </span>
+
+            <h3>
+              Shopify Theme Customization
+            </h3>
+
+            <p>
+              Liquid, HTML, CSS, responsive design and custom sections.
+            </p>
+
           </div>
 
+
+
           <div class="expertise-item">
-            <span class="expertise-number">05</span>
-            <h3>Mobile Experience</h3>
-            <p>Responsive layouts designed to work across phones, tablets and desktops.</p>
+
+            <span class="expertise-number">
+              03
+            </span>
+
+            <h3>
+              Product Management
+            </h3>
+
+            <p>
+              Product listings, variants, images, descriptions, tags and collections.
+            </p>
+
           </div>
+
+
+
+          <div class="expertise-item">
+
+            <span class="expertise-number">
+              04
+            </span>
+
+            <h3>
+              Conversion Optimization
+            </h3>
+
+            <p>
+              Better hierarchy, UX, CTAs and customer-focused landing pages.
+            </p>
+
+          </div>
+
+
+
+          <div class="expertise-item">
+
+            <span class="expertise-number">
+              05
+            </span>
+
+            <h3>
+              Mobile Experience
+            </h3>
+
+            <p>
+              Responsive layouts designed to work across phones, tablets and desktops.
+            </p>
+
+          </div>
+
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- PROCESS -->
+
+
+    <!-- =========================================
+         PROCESS
+    ========================================= -->
+
     <section class="section process">
+
       <div class="container process-grid">
+
+
         <div>
-          <div class="section-label">My Process</div>
-          <h2 class="section-title">From idea to finished store.</h2>
+
+          <div class="section-label">
+            My Process
+          </div>
+
+          <h2 class="section-title">
+            From idea to finished store.
+          </h2>
+
         </div>
+
+
 
         <div class="process-list">
-          <div class="process-item">
-            <span class="process-number">01</span>
-            <div>
-              <h3>Discovery</h3>
-              <p>Understand the business, target audience, products and goals.</p>
-            </div>
-          </div>
+
 
           <div class="process-item">
-            <span class="process-number">02</span>
+
+            <span class="process-number">
+              01
+            </span>
+
             <div>
-              <h3>Planning</h3>
-              <p>Build the right store structure, navigation and content hierarchy.</p>
+
+              <h3>
+                Discovery
+              </h3>
+
+              <p>
+                Understand the business, target audience, products and goals.
+              </p>
+
             </div>
+
           </div>
 
-          <div class="process-item">
-            <span class="process-number">03</span>
-            <div>
-              <h3>Development</h3>
-              <p>Customize Shopify themes, sections, pages and responsive layouts.</p>
-            </div>
-          </div>
+
 
           <div class="process-item">
-            <span class="process-number">04</span>
+
+            <span class="process-number">
+              02
+            </span>
+
             <div>
-              <h3>Optimization</h3>
-              <p>Improve usability, visual hierarchy, mobile experience and conversion.</p>
+
+              <h3>
+                Planning
+              </h3>
+
+              <p>
+                Build the right store structure, navigation and content hierarchy.
+              </p>
+
             </div>
+
           </div>
 
+
+
           <div class="process-item">
-            <span class="process-number">05</span>
+
+            <span class="process-number">
+              03
+            </span>
+
             <div>
-              <h3>Launch</h3>
-              <p>Final checks, content review and preparation for a professional launch.</p>
+
+              <h3>
+                Development
+              </h3>
+
+              <p>
+                Customize Shopify themes, sections, pages and responsive layouts.
+              </p>
+
             </div>
+
           </div>
+
+
+
+          <div class="process-item">
+
+            <span class="process-number">
+              04
+            </span>
+
+            <div>
+
+              <h3>
+                Optimization
+              </h3>
+
+              <p>
+                Improve usability, visual hierarchy, mobile experience and conversion.
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="process-item">
+
+            <span class="process-number">
+              05
+            </span>
+
+            <div>
+
+              <h3>
+                Launch
+              </h3>
+
+              <p>
+                Final checks, content review and preparation for a professional launch.
+              </p>
+
+            </div>
+
+          </div>
+
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- CTA -->
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
     <section class="cta">
+
       <div class="container">
+
+
         <div class="cta-box">
+
+
           <div class="cta-content">
-            <div class="section-label">Let's Build Something</div>
-            <h2>Have a Shopify project in mind?</h2>
-            <p>Whether you need a new Shopify store, theme customization, landing page or ongoing e-commerce support, let's talk.</p>
-            <a href="#contact" class="button button-primary">Start a Conversation</a>
+
+
+            <div class="section-label">
+              Let's Build Something
+            </div>
+
+
+            <h2>
+              Have a Shopify project in mind?
+            </h2>
+
+
+            <p>
+              Whether you need a new Shopify store, theme customization, landing page or ongoing e-commerce support, let's talk.
+            </p>
+
+
+            <a href="#contact" class="button button-primary">
+              Start a Conversation
+            </a>
+
+
           </div>
+
+
         </div>
+
+
       </div>
+
     </section>
 
-    <!-- CONTACT -->
+
+
+    <!-- =========================================
+         CONTACT
+    ========================================= -->
+
     <section class="section contact" id="contact">
+
       <div class="container contact-grid">
+
+
         <div>
-          <div class="section-label">Contact</div>
-          <h2 class="section-title">Let's work together.</h2>
+
+
+          <div class="section-label">
+            Contact
+          </div>
+
+
+          <h2 class="section-title">
+            Let's work together.
+          </h2>
+
+
           <p class="contact-description">
             Tell me what you're building, what you need help with, or what you'd like to improve. I'll get back to you as soon as possible.
           </p>
 
+
+
           <div class="contact-links">
-            <a href="mailto:artak.mkrtchyan.98@mail.ru" class="contact-link">
-              <span>artak.mkrtchyan.98@mail.ru</span>
-              <span>↗</span>
+
+
+            <a
+              href="mailto:artak.mkrtchyan.98@mail.ru"
+              class="contact-link"
+            >
+
+              <span>
+                artak.mkrtchyan.98@mail.ru
+              </span>
+
+              <span>
+                ↗
+              </span>
+
             </a>
-            <a href="#" class="contact-link" title="LinkedIn — Available for collaboration">
-              <span>LinkedIn — Available for collaboration</span>
-              <span>↗</span>
+
+
+
+            <a
+              href="#"
+              class="contact-link"
+              title="LinkedIn — Available for collaboration"
+            >
+
+              <span>
+                LinkedIn — Available for collaboration
+              </span>
+
+              <span>
+                ↗
+              </span>
+
             </a>
+
+
           </div>
+
+
         </div>
 
-        <form class="contact-form" action="mailto:artak.mkrtchyan.98@mail.ru" method="post" enctype="text/plain">
+
+
+        <form
+          class="contact-form"
+          action="mailto:artak.mkrtchyan.98@mail.ru"
+          method="post"
+          enctype="text/plain"
+        >
+
+
           <div class="form-row">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+            >
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              required
+            >
+
           </div>
-          <input type="text" name="subject" placeholder="Project subject">
-          <textarea name="message" placeholder="Tell me about your Shopify project..." required></textarea>
-          <button type="submit" class="button submit-button">Send Message →</button>
+
+
+          <input
+            type="text"
+            name="subject"
+            placeholder="Project subject"
+          >
+
+
+          <textarea
+            name="message"
+            placeholder="Tell me about your Shopify project..."
+            required
+          ></textarea>
+
+
+          <button
+            type="submit"
+            class="button submit-button"
+          >
+            Send Message →
+          </button>
+
+
         </form>
+
+
       </div>
+
     </section>
+
+
   </main>
 
-  <!-- FOOTER -->
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
   <footer>
+
     <div class="container footer-inner">
-      <div class="footer-logo">M-ARTAK<span>.</span></div>
-      <div class="footer-copy">© 2026 Mkrtchyan-Artak Mkrtchyan. All rights reserved.</div>
-      <div class="footer-socials">
-        <a href="mailto:artak.mkrtchyan.98@mail.ru">Email</a>
-        <a href="#contact">LinkedIn</a>
+
+
+      <div class="footer-logo">
+        M-ARTAK<span>.</span>
       </div>
+
+
+      <div class="footer-copy">
+        © 2026 Mkrtchyan-Artak Mkrtchyan. All rights reserved.
+      </div>
+
+
+      <div class="footer-socials">
+
+        <a href="mailto:artak.mkrtchyan.98@mail.ru">
+          Email
+        </a>
+
+        <a href="#contact">
+          LinkedIn
+        </a>
+
+      </div>
+
+
     </div>
+
   </footer>
 
+
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================= -->
+
   <script>
-    // Smooth scroll for anchor links
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
       anchor.addEventListener('click', function (e) {
+
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+
+        const target = document.querySelector(
+          this.getAttribute('href')
+        );
+
         if (target) {
+
           target.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
           });
+
         }
+
       });
+
     });
+
   </script>
+
 
 </body>
 </html>
