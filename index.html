@@ -773,6 +773,30 @@
     }
 
     /* =========================
+       PROJECT IMAGE PRESENTATION
+       ONLY FOR PROJECT VISUALS
+    ========================= */
+
+    .project-image {
+      background: #111;
+      padding: 18px;
+    }
+
+    .project-image img {
+      object-fit: contain;
+      object-position: center;
+      border-radius: 8px;
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+      background: #fff;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.025);
+    }
+
+    /* =========================
        EXPERTISE
     ========================= */
 
@@ -1337,6 +1361,10 @@
       .project-content {
         padding: 22px;
       }
+
+      .project-image {
+        padding: 12px;
+      }
     }
   </style>
 </head>
@@ -1384,8 +1412,6 @@
           </ul>
         </nav>
 
-        <!-- LANGUAGE SELECTOR -->
-
         <div class="language-selector" id="languageSelector">
 
           <button
@@ -1432,8 +1458,6 @@
           </div>
         </div>
 
-        <!-- MOBILE BUTTON -->
-
         <button
           type="button"
           class="mobile-menu-button"
@@ -1447,8 +1471,6 @@
 
       </div>
     </div>
-
-    <!-- MOBILE NAVIGATION -->
 
     <nav class="mobile-nav" id="mobileNav">
 
@@ -1681,147 +1703,107 @@
         <div class="service-grid">
 
           <article class="service-card">
-
             <span class="service-number">01 / 08</span>
-
             <div class="service-icon">S</div>
-
             <div>
               <h3 data-i18n="service_1_title">
                 Shopify Development
               </h3>
-
               <p data-i18n="service_1_text">
                 Custom Shopify pages, sections, layouts and functionality.
               </p>
             </div>
-
           </article>
 
           <article class="service-card">
-
             <span class="service-number">02 / 08</span>
-
             <div class="service-icon">M</div>
-
             <div>
               <h3 data-i18n="service_2_title">
                 Shopify Store Manager
               </h3>
-
               <p data-i18n="service_2_text">
                 Store updates, content management, products and day-to-day operations.
               </p>
             </div>
-
           </article>
 
           <article class="service-card">
-
             <span class="service-number">03 / 08</span>
-
             <div class="service-icon">E</div>
-
             <div>
               <h3 data-i18n="service_3_title">
                 E-commerce Manager
               </h3>
-
               <p data-i18n="service_3_text">
                 Managing the structure, content and customer-facing experience of your store.
               </p>
             </div>
-
           </article>
 
           <article class="service-card">
-
             <span class="service-number">04 / 08</span>
-
             <div class="service-icon">P</div>
-
             <div>
               <h3 data-i18n="service_4_title">
                 Product Upload/Product Listing
               </h3>
-
               <p data-i18n="service_4_text">
                 Product uploads, descriptions, variants, images, tags and organization.
               </p>
             </div>
-
           </article>
 
           <article class="service-card">
-
             <span class="service-number">05 / 08</span>
-
             <div class="service-icon">L</div>
-
             <div>
               <h3 data-i18n="service_5_title">
                 Landing Page Development
               </h3>
-
               <p data-i18n="service_5_text">
                 High-quality landing pages designed around clarity and conversions.
               </p>
             </div>
-
           </article>
 
           <article class="service-card">
-
             <span class="service-number">06 / 08</span>
-
             <div class="service-icon">C</div>
-
             <div>
               <h3 data-i18n="service_6_title">
                 CRO
               </h3>
-
               <p data-i18n="service_6_text">
                 Improving layouts, content and customer journeys to increase conversions.
               </p>
             </div>
-
           </article>
 
           <article class="service-card">
-
             <span class="service-number">07 / 08</span>
-
             <div class="service-icon">+</div>
-
             <div>
               <h3 data-i18n="service_7_title">
                 Shopify Store Setup
               </h3>
-
               <p data-i18n="service_7_text">
                 Initial Shopify configuration, structure, navigation and essential settings.
               </p>
             </div>
-
           </article>
 
           <article class="service-card">
-
             <span class="service-number">08 / 08</span>
-
             <div class="service-icon">T</div>
-
             <div>
               <h3 data-i18n="service_8_title">
                 Shopify Theme Edits
               </h3>
-
               <p data-i18n="service_8_text">
                 Theme customization, Liquid, CSS, responsive layouts and visual improvements.
               </p>
             </div>
-
           </article>
 
         </div>
@@ -2122,73 +2104,51 @@
         <div class="expertise-list">
 
           <div class="expertise-item">
-
             <span class="expertise-number">01</span>
-
-            <h3 data-i18n="expertise_1_title">
-              Store Structure
-            </h3>
-
+            <h3 data-i18n="expertise_1_title">Store Structure</h3>
             <p data-i18n="expertise_1_text">
               Navigation, collections, products, pages and store organization.
             </p>
-
           </div>
 
           <div class="expertise-item">
-
             <span class="expertise-number">02</span>
-
             <h3 data-i18n="expertise_2_title">
               Shopify Theme Customization
             </h3>
-
             <p data-i18n="expertise_2_text">
               Liquid, HTML, CSS, responsive design and custom sections.
             </p>
-
           </div>
 
           <div class="expertise-item">
-
             <span class="expertise-number">03</span>
-
             <h3 data-i18n="expertise_3_title">
               Product Management
             </h3>
-
             <p data-i18n="expertise_3_text">
               Product listings, variants, images, descriptions, tags and collections.
             </p>
-
           </div>
 
           <div class="expertise-item">
-
             <span class="expertise-number">04</span>
-
             <h3 data-i18n="expertise_4_title">
               Conversion Optimization
             </h3>
-
             <p data-i18n="expertise_4_text">
               Better hierarchy, UX, CTAs and customer-focused landing pages.
             </p>
-
           </div>
 
           <div class="expertise-item">
-
             <span class="expertise-number">05</span>
-
             <h3 data-i18n="expertise_5_title">
               Mobile Experience
             </h3>
-
             <p data-i18n="expertise_5_text">
               Responsive layouts designed to work across phones, tablets and desktops.
             </p>
-
           </div>
 
         </div>
@@ -2226,93 +2186,53 @@
         <div class="process-list">
 
           <div class="process-item">
-
             <span class="process-number">01</span>
-
             <div>
-
-              <h3 data-i18n="process_1_title">
-                Discovery
-              </h3>
-
+              <h3 data-i18n="process_1_title">Discovery</h3>
               <p data-i18n="process_1_text">
                 Understand the business, target audience, products and goals.
               </p>
-
             </div>
-
           </div>
 
           <div class="process-item">
-
             <span class="process-number">02</span>
-
             <div>
-
-              <h3 data-i18n="process_2_title">
-                Planning
-              </h3>
-
+              <h3 data-i18n="process_2_title">Planning</h3>
               <p data-i18n="process_2_text">
                 Build the right store structure, navigation and content hierarchy.
               </p>
-
             </div>
-
           </div>
 
           <div class="process-item">
-
             <span class="process-number">03</span>
-
             <div>
-
-              <h3 data-i18n="process_3_title">
-                Development
-              </h3>
-
+              <h3 data-i18n="process_3_title">Development</h3>
               <p data-i18n="process_3_text">
                 Customize Shopify themes, sections, pages and responsive layouts.
               </p>
-
             </div>
-
           </div>
 
           <div class="process-item">
-
             <span class="process-number">04</span>
-
             <div>
-
-              <h3 data-i18n="process_4_title">
-                Optimization
-              </h3>
-
+              <h3 data-i18n="process_4_title">Optimization</h3>
               <p data-i18n="process_4_text">
                 Improve usability, visual hierarchy, mobile experience and conversion.
               </p>
-
             </div>
-
           </div>
 
           <div class="process-item">
-
             <span class="process-number">05</span>
-
             <div>
-
-              <h3 data-i18n="process_5_title">
-                Launch
-              </h3>
-
+              <h3 data-i18n="process_5_title">Launch</h3>
               <p data-i18n="process_5_text">
                 Final checks, content review and preparation for a professional launch.
               </p>
-
             </div>
-
           </div>
 
         </div>
@@ -2404,7 +2324,6 @@
               <span>
                 artak.mkrtchyan.98@mail.ru
               </span>
-
               <span>↗</span>
             </a>
 
@@ -2416,7 +2335,6 @@
               <span data-i18n="linkedin_text">
                 LinkedIn — Available for collaboration
               </span>
-
               <span>↗</span>
             </a>
 
@@ -2527,10 +2445,6 @@
   ========================= -->
 
   <script>
-
-    /* =========================
-       TRANSLATIONS
-    ========================= */
 
     const translations = {
 
@@ -3300,18 +3214,11 @@
     };
 
 
-    /* =========================
-       LANGUAGE SETTINGS
-    ========================= */
-
     const languageSelector =
       document.getElementById("languageSelector");
 
     const languageButton =
       document.getElementById("languageButton");
-
-    const languageMenu =
-      document.getElementById("languageMenu");
 
     const currentFlag =
       document.getElementById("currentFlag");
@@ -3352,8 +3259,6 @@
         return;
       }
 
-      /* TEXT */
-
       document
         .querySelectorAll("[data-i18n]")
         .forEach(element => {
@@ -3368,8 +3273,6 @@
 
         });
 
-
-      /* PLACEHOLDERS */
 
       const placeholderMap = {
 
@@ -3411,15 +3314,11 @@
         });
 
 
-      /* HTML LANGUAGE */
-
       document.documentElement.lang =
         language === "hy"
           ? "hy"
           : language;
 
-
-      /* LANGUAGE BUTTON */
 
       currentFlag.textContent =
         languageData[language].flag;
@@ -3427,8 +3326,6 @@
       currentLanguage.textContent =
         languageData[language].name;
 
-
-      /* ACTIVE OPTION */
 
       languageOptions.forEach(option => {
 
@@ -3440,8 +3337,6 @@
       });
 
 
-      /* SAVE */
-
       localStorage.setItem(
         "artakPortfolioLanguage",
         language
@@ -3449,10 +3344,6 @@
 
     }
 
-
-    /* =========================
-       OPEN / CLOSE LANGUAGE MENU
-    ========================= */
 
     languageButton.addEventListener(
       "click",
@@ -3521,10 +3412,6 @@
     );
 
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
-
     const mobileMenuButton =
       document.getElementById(
         "mobileMenuButton"
@@ -3558,8 +3445,6 @@
     );
 
 
-    /* CLOSE MOBILE MENU AFTER CLICK */
-
     mobileNav
       .querySelectorAll("a")
       .forEach(link => {
@@ -3586,10 +3471,6 @@
 
       });
 
-
-    /* =========================
-       SMOOTH SCROLL
-    ========================= */
 
     document
       .querySelectorAll('a[href^="#"]')
@@ -3628,10 +3509,6 @@
 
       });
 
-
-    /* =========================
-       LOAD SAVED LANGUAGE
-    ========================= */
 
     const savedLanguage =
       localStorage.getItem(
