@@ -445,9 +445,164 @@
       line-height: 1.6;
     }
 
+    /* PROJECTS */
+    .projects {
+      background: var(--black);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .projects-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+      margin-bottom: 70px;
+    }
+
+    .projects-description {
+      max-width: 420px;
+      color: var(--gray-400);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--dark);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid transparent;
+      transition: border-color 0.4s ease;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      background: var(--dark-2);
+    }
+
+    .project-card:hover::before {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .project-image {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      position: relative;
+      background: var(--dark-3);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      display: block;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.06);
+    }
+
+    .project-category {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 7px 13px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 2;
+    }
+
+    .project-content {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 14px;
+    }
+
+    .project-number {
+      color: var(--gray-600);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .project-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .project-description {
+      color: var(--gray-500);
+      font-size: 14px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      background: var(--white);
+      color: var(--black);
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 100px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    .project-link:hover {
+      background: var(--gray-200);
+      transform: translateX(4px);
+    }
+
+    .project-link svg {
+      transition: transform 0.3s ease;
+      width: 14px;
+      height: 14px;
+    }
+
+    .project-link:hover svg {
+      transform: translateX(3px);
+    }
+
     /* EXPERTISE */
     .expertise {
-      background: var(--black);
+      background: var(--dark);
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
@@ -506,7 +661,7 @@
 
     /* PROCESS */
     .process {
-      background: var(--dark);
+      background: var(--black);
     }
 
     .process-grid {
@@ -754,6 +909,10 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .about-grid,
       .process-grid,
       .contact-grid {
@@ -771,6 +930,14 @@
 
       .expertise-item p {
         grid-column: 2;
+      }
+
+      .projects-heading {
+        display: block;
+      }
+
+      .projects-description {
+        margin-top: 24px;
       }
     }
 
@@ -843,6 +1010,11 @@
         flex-direction: column;
         text-align: center;
       }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
     }
 
     @media (max-width: 520px) {
@@ -897,6 +1069,14 @@
       .cta-box h2 {
         font-size: 36px;
       }
+
+      .project-title {
+        font-size: 20px;
+      }
+
+      .project-content {
+        padding: 22px;
+      }
     }
   </style>
 </head>
@@ -911,6 +1091,7 @@
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#contact" class="nav-cta">Let's Work Together</a></li>
         </ul>
@@ -1073,6 +1254,80 @@
             <div>
               <h3>Shopify Theme Edits</h3>
               <p>Theme customization, Liquid, CSS, responsive layouts and visual improvements.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="projects-heading">
+          <div>
+            <div class="section-label">Selected Work</div>
+            <h2 class="section-title">Projects that drive results.</h2>
+          </div>
+          <p class="projects-description">
+            A selection of recent Shopify and e-commerce projects — from conversion-focused landing pages to complete store builds.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- PROJECT 01 -->
+          <article class="project-card">
+            <div class="project-image">
+              <span class="project-category">Landing Page</span>
+              <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/1d15654b3-7158-4c9d-b75d-044c3064ba99.png" alt="Black Friday Dining Room Landing Page preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-number">01 / 03</span>
+              <h3 class="project-title">Black Friday Dining Room Landing Page</h3>
+              <p class="project-description">A conversion-focused Black Friday landing page for a premium dining room furniture collection, featuring elegant imagery, clear CTAs and a refined editorial layout.</p>
+              <a href="https://artak-mkrtchyan-cbzy1yn1.myshopify.com/pages/bf?pb=0" target="_blank" rel="noopener" class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 02 -->
+          <article class="project-card">
+            <div class="project-image">
+              <span class="project-category">Landing Page</span>
+              <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/1fcbde499-14a5-49d0-b71f-7cbf7cef852c.png" alt="LED Aroma Diffuser with Light landing page preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-number">02 / 03</span>
+              <h3 class="project-title">LED Aroma Diffuser with Light</h3>
+              <p class="project-description">A minimalist product landing page for a home fragrance brand, combining sensory storytelling with clean typography and a dual CTA structure for Shop Now and Discover.</p>
+              <a href="https://artak-mkrtchyan-cbzy1yn1.myshopify.com/pages/landing-page?pb=0" target="_blank" rel="noopener" class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 03 -->
+          <article class="project-card">
+            <div class="project-image">
+              <span class="project-category">Shopify Store</span>
+              <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/10e0ff0b2-5916-4235-8c51-01009006ffbb.png" alt="HOME GALLERY Shopify Store preview" loading="lazy">
+            </div>
+            <div class="project-content">
+              <span class="project-number">03 / 03</span>
+              <h3 class="project-title">HOME GALLERY — Shopify Store</h3>
+              <p class="project-description">A complete Shopify storefront for a premium home furniture brand, featuring a refined hero, curated collections across Dining Room, Living Room and Bedroom categories.</p>
+              <a href="https://artak-mkrtchyan-cbzy1yn1.myshopify.com/?pb=0" target="_blank" rel="noopener" class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
             </div>
           </article>
         </div>
