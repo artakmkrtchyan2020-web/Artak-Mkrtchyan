@@ -120,6 +120,104 @@
       color: var(--black);
     }
 
+    /* LANGUAGE SELECTOR */
+    .lang-selector {
+      position: relative;
+      margin-left: 24px;
+    }
+
+    .lang-trigger {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 100px;
+      padding: 8px 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--gray-300);
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .lang-trigger:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      color: var(--white);
+    }
+
+    .lang-trigger .flag {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .lang-trigger .chevron {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.25s ease;
+      opacity: 0.6;
+    }
+
+    .lang-trigger.active .chevron {
+      transform: rotate(180deg);
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 180px;
+      background: var(--dark-2);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 6px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 200;
+    }
+
+    .lang-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 10px 14px;
+      background: none;
+      border: none;
+      color: var(--gray-300);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .lang-option:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+    }
+
+    .lang-option.active {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+    }
+
+    .lang-option .flag {
+      font-size: 18px;
+      line-height: 1;
+    }
+
     /* HERO */
     .hero {
       min-height: 100vh;
@@ -480,6 +578,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
+      border-radius: 4px;
     }
 
     .project-card::before {
@@ -490,6 +589,7 @@
       transition: border-color 0.4s ease;
       pointer-events: none;
       z-index: 3;
+      border-radius: 4px;
     }
 
     .project-card:hover {
@@ -502,7 +602,7 @@
     }
 
     .project-image {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16 / 10;
       overflow: hidden;
       position: relative;
       background: var(--dark-3);
@@ -512,12 +612,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
       display: block;
     }
 
     .project-card:hover .project-image img {
-      transform: scale(1.06);
+      transform: scale(1.04);
     }
 
     .project-category {
@@ -950,6 +1051,18 @@
         display: none;
       }
 
+      .lang-selector {
+        margin-left: 16px;
+      }
+
+      .lang-trigger .lang-label {
+        display: none;
+      }
+
+      .lang-trigger {
+        padding: 8px 10px;
+      }
+
       .hero {
         min-height: 90vh;
       }
@@ -1089,12 +1202,35 @@
       <a href="#" class="logo">Artak Mkrtchyan</a>
       <nav>
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#contact" class="nav-cta">Let's Work Together</a></li>
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="#contact" class="nav-cta" data-i18n="nav.cta">Let's Work Together</a></li>
         </ul>
+        <div class="lang-selector">
+          <button class="lang-trigger" id="langTrigger" aria-label="Language selector" aria-expanded="false" aria-haspopup="true">
+            <span class="flag" id="langFlag">🇬🇧</span>
+            <span class="lang-label" id="langLabel">English</span>
+            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button class="lang-option" data-lang="en" role="menuitem">
+              <span class="flag">🇧</span>
+              <span>English</span>
+            </button>
+            <button class="lang-option" data-lang="hy" role="menuitem">
+              <span class="flag">🇦🇲</span>
+              <span>Հայերեն</span>
+            </button>
+            <button class="lang-option" data-lang="ru" role="menuitem">
+              <span class="flag">🇷🇺</span>
+              <span>Русский</span>
+            </button>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -1106,38 +1242,38 @@
         <div class="hero-content">
           <div class="hero-tag">
             <span class="hero-dot"></span>
-            Shopify & E-commerce Specialist
+            <span data-i18n="hero.tag">Shopify & E-commerce Specialist</span>
           </div>
 
-          <h1>
+          <h1 data-i18n="hero.title">
             I build Shopify<br>stores that <span class="accent">convert.</span>
           </h1>
 
-          <p class="hero-description">
-            I'm Mkrtchyan-Artak Mkrtchyan, a Shopify Developer and E-commerce Specialist focused on building, managing and optimizing professional Shopify stores.
+          <p class="hero-description" data-i18n="hero.description">
+            I'm Artak Mkrtchyan, a Shopify Developer and E-commerce Specialist focused on building, managing and optimizing professional Shopify stores.
           </p>
 
           <div class="hero-buttons">
-            <a href="#services" class="button button-primary">View Services</a>
-            <a href="#contact" class="button button-outline">Let's Work Together</a>
+            <a href="#services" class="button button-primary" data-i18n="hero.btn1">View Services</a>
+            <a href="#contact" class="button button-outline" data-i18n="hero.btn2">Let's Work Together</a>
           </div>
 
           <div class="hero-stats">
             <div class="stat">
               <strong>Shopify</strong>
-              <span>Specialized</span>
+              <span data-i18n="hero.stat1">Specialized</span>
             </div>
             <div class="stat">
               <strong>E-commerce</strong>
-              <span>Focused</span>
+              <span data-i18n="hero.stat2">Focused</span>
             </div>
             <div class="stat">
               <strong>CRO</strong>
-              <span>Conversion</span>
+              <span data-i18n="hero.stat3">Conversion</span>
             </div>
             <div class="stat">
               <strong>100%</strong>
-              <span>Responsive</span>
+              <span data-i18n="hero.stat4">Responsive</span>
             </div>
           </div>
         </div>
@@ -1148,24 +1284,24 @@
     <section class="section about" id="about">
       <div class="container about-grid">
         <div class="about-intro">
-          <div class="section-label">About Me</div>
-          <h2 class="section-title">Shopify is more than a platform.</h2>
+          <div class="section-label" data-i18n="about.label">About Me</div>
+          <h2 class="section-title" data-i18n="about.title">Shopify is more than a platform.</h2>
         </div>
 
         <div>
-          <p class="about-text">
+          <p class="about-text" data-i18n="about.text1">
             I'm a Shopify Developer and E-commerce Specialist focused on helping businesses create professional and effective online stores.
           </p>
-          <p class="about-text">
+          <p class="about-text" data-i18n="about.text2">
             My work covers the full Shopify workflow — from store setup and theme customization to product uploads, landing page development, store management and conversion optimization.
           </p>
-          <p class="about-text">
+          <p class="about-text" data-i18n="about.text3">
             I focus on clean design, responsive layouts, practical functionality and details that create a better customer experience.
           </p>
 
           <div class="about-highlight">
-            <strong>Shopify Development + E-commerce</strong>
-            <span>Building, managing and optimizing online stores.</span>
+            <strong data-i18n="about.highlightTitle">Shopify Development + E-commerce</strong>
+            <span data-i18n="about.highlightSub">Building, managing and optimizing online stores.</span>
           </div>
         </div>
       </div>
@@ -1176,10 +1312,10 @@
       <div class="container">
         <div class="services-heading">
           <div>
-            <div class="section-label">What I Do</div>
-            <h2 class="section-title">Services built around Shopify.</h2>
+            <div class="section-label" data-i18n="services.label">What I Do</div>
+            <h2 class="section-title" data-i18n="services.title">Services built around Shopify.</h2>
           </div>
-          <p class="services-description">
+          <p class="services-description" data-i18n="services.description">
             From the first store setup to ongoing optimization, I can handle the essential parts of your Shopify and e-commerce workflow.
           </p>
         </div>
@@ -1189,8 +1325,8 @@
             <span class="service-number">01 / 08</span>
             <div class="service-icon">S</div>
             <div>
-              <h3>Shopify Development</h3>
-              <p>Custom Shopify pages, sections, layouts and functionality.</p>
+              <h3 data-i18n="services.s1t">Shopify Development</h3>
+              <p data-i18n="services.s1d">Custom Shopify pages, sections, layouts and functionality.</p>
             </div>
           </article>
 
@@ -1198,8 +1334,8 @@
             <span class="service-number">02 / 08</span>
             <div class="service-icon">M</div>
             <div>
-              <h3>Shopify Store Manager</h3>
-              <p>Store updates, content management, products and day-to-day operations.</p>
+              <h3 data-i18n="services.s2t">Shopify Store Manager</h3>
+              <p data-i18n="services.s2d">Store updates, content management, products and day-to-day operations.</p>
             </div>
           </article>
 
@@ -1207,8 +1343,8 @@
             <span class="service-number">03 / 08</span>
             <div class="service-icon">E</div>
             <div>
-              <h3>E Commerce Manager</h3>
-              <p>Managing the structure, content and customer-facing experience of your store.</p>
+              <h3 data-i18n="services.s3t">E Commerce Manager</h3>
+              <p data-i18n="services.s3d">Managing the structure, content and customer-facing experience of your store.</p>
             </div>
           </article>
 
@@ -1216,8 +1352,8 @@
             <span class="service-number">04 / 08</span>
             <div class="service-icon">P</div>
             <div>
-              <h3>Product Upload/Product Listing</h3>
-              <p>Product uploads, descriptions, variants, images, tags and organization.</p>
+              <h3 data-i18n="services.s4t">Product Upload/Product Listing</h3>
+              <p data-i18n="services.s4d">Product uploads, descriptions, variants, images, tags and organization.</p>
             </div>
           </article>
 
@@ -1225,8 +1361,8 @@
             <span class="service-number">05 / 08</span>
             <div class="service-icon">L</div>
             <div>
-              <h3>Landing Page Development</h3>
-              <p>High-quality landing pages designed around clarity and conversions.</p>
+              <h3 data-i18n="services.s5t">Landing Page Development</h3>
+              <p data-i18n="services.s5d">High-quality landing pages designed around clarity and conversions.</p>
             </div>
           </article>
 
@@ -1234,8 +1370,8 @@
             <span class="service-number">06 / 08</span>
             <div class="service-icon">C</div>
             <div>
-              <h3>CRO</h3>
-              <p>Improving layouts, content and customer journeys to increase conversions.</p>
+              <h3 data-i18n="services.s6t">CRO</h3>
+              <p data-i18n="services.s6d">Improving layouts, content and customer journeys to increase conversions.</p>
             </div>
           </article>
 
@@ -1243,8 +1379,8 @@
             <span class="service-number">07 / 08</span>
             <div class="service-icon">+</div>
             <div>
-              <h3>Shopify Store Setup</h3>
-              <p>Initial Shopify configuration, structure, navigation and essential settings.</p>
+              <h3 data-i18n="services.s7t">Shopify Store Setup</h3>
+              <p data-i18n="services.s7d">Initial Shopify configuration, structure, navigation and essential settings.</p>
             </div>
           </article>
 
@@ -1252,8 +1388,8 @@
             <span class="service-number">08 / 08</span>
             <div class="service-icon">T</div>
             <div>
-              <h3>Shopify Theme Edits</h3>
-              <p>Theme customization, Liquid, CSS, responsive layouts and visual improvements.</p>
+              <h3 data-i18n="services.s8t">Shopify Theme Edits</h3>
+              <p data-i18n="services.s8d">Theme customization, Liquid, CSS, responsive layouts and visual improvements.</p>
             </div>
           </article>
         </div>
@@ -1265,10 +1401,10 @@
       <div class="container">
         <div class="projects-heading">
           <div>
-            <div class="section-label">Selected Work</div>
-            <h2 class="section-title">Projects that drive results.</h2>
+            <div class="section-label" data-i18n="projects.label">Selected Work</div>
+            <h2 class="section-title" data-i18n="projects.title">Projects that drive results.</h2>
           </div>
-          <p class="projects-description">
+          <p class="projects-description" data-i18n="projects.description">
             A selection of recent Shopify and e-commerce projects — from conversion-focused landing pages to complete store builds.
           </p>
         </div>
@@ -1277,15 +1413,15 @@
           <!-- PROJECT 01 -->
           <article class="project-card">
             <div class="project-image">
-              <span class="project-category">Landing Page</span>
+              <span class="project-category" data-i18n="projects.cat1">Landing Page</span>
               <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/1d15654b3-7158-4c9d-b75d-044c3064ba99.png" alt="Black Friday Dining Room Landing Page preview" loading="lazy">
             </div>
             <div class="project-content">
               <span class="project-number">01 / 03</span>
-              <h3 class="project-title">Black Friday Dining Room Landing Page</h3>
-              <p class="project-description">A conversion-focused Black Friday landing page for a premium dining room furniture collection, featuring elegant imagery, clear CTAs and a refined editorial layout.</p>
+              <h3 class="project-title" data-i18n="projects.p1t">Black Friday Dining Room Landing Page</h3>
+              <p class="project-description" data-i18n="projects.p1d">A conversion-focused Black Friday landing page for a premium dining room furniture collection, featuring elegant imagery, clear CTAs and a refined editorial layout.</p>
               <a href="https://artak-mkrtchyan-cbzy1yn1.myshopify.com/pages/bf?pb=0" target="_blank" rel="noopener" class="project-link">
-                View Project
+                <span data-i18n="projects.viewBtn">View Project</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -1296,15 +1432,15 @@
           <!-- PROJECT 02 -->
           <article class="project-card">
             <div class="project-image">
-              <span class="project-category">Landing Page</span>
+              <span class="project-category" data-i18n="projects.cat1">Landing Page</span>
               <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/1fcbde499-14a5-49d0-b71f-7cbf7cef852c.png" alt="LED Aroma Diffuser with Light landing page preview" loading="lazy">
             </div>
             <div class="project-content">
               <span class="project-number">02 / 03</span>
-              <h3 class="project-title">LED Aroma Diffuser with Light</h3>
-              <p class="project-description">A minimalist product landing page for a home fragrance brand, combining sensory storytelling with clean typography and a dual CTA structure for Shop Now and Discover.</p>
+              <h3 class="project-title" data-i18n="projects.p2t">LED Aroma Diffuser with Light</h3>
+              <p class="project-description" data-i18n="projects.p2d">A minimalist product landing page for a home fragrance brand, combining sensory storytelling with clean typography and a dual CTA structure for Shop Now and Discover.</p>
               <a href="https://artak-mkrtchyan-cbzy1yn1.myshopify.com/pages/landing-page?pb=0" target="_blank" rel="noopener" class="project-link">
-                View Project
+                <span data-i18n="projects.viewBtn">View Project</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -1315,15 +1451,15 @@
           <!-- PROJECT 03 -->
           <article class="project-card">
             <div class="project-image">
-              <span class="project-category">Shopify Store</span>
+              <span class="project-category" data-i18n="projects.cat2">Shopify Store</span>
               <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/10e0ff0b2-5916-4235-8c51-01009006ffbb.png" alt="HOME GALLERY Shopify Store preview" loading="lazy">
             </div>
             <div class="project-content">
               <span class="project-number">03 / 03</span>
-              <h3 class="project-title">HOME GALLERY — Shopify Store</h3>
-              <p class="project-description">A complete Shopify storefront for a premium home furniture brand, featuring a refined hero, curated collections across Dining Room, Living Room and Bedroom categories.</p>
+              <h3 class="project-title" data-i18n="projects.p3t">HOME GALLERY — Shopify Store</h3>
+              <p class="project-description" data-i18n="projects.p3d">A complete Shopify storefront for a premium home furniture brand, featuring a refined hero, curated collections across Dining Room, Living Room and Bedroom categories.</p>
               <a href="https://artak-mkrtchyan-cbzy1yn1.myshopify.com/?pb=0" target="_blank" rel="noopener" class="project-link">
-                View Project
+                <span data-i18n="projects.viewBtn">View Project</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -1339,10 +1475,10 @@
       <div class="container">
         <div class="expertise-header">
           <div>
-            <div class="section-label">Expertise</div>
-            <h2 class="section-title">Focused on every important part of a Shopify store.</h2>
+            <div class="section-label" data-i18n="expertise.label">Expertise</div>
+            <h2 class="section-title" data-i18n="expertise.title">Focused on every important part of a Shopify store.</h2>
           </div>
-          <p class="expertise-intro">
+          <p class="expertise-intro" data-i18n="expertise.intro">
             A combination of technical Shopify skills, e-commerce knowledge and attention to customer experience.
           </p>
         </div>
@@ -1350,32 +1486,32 @@
         <div class="expertise-list">
           <div class="expertise-item">
             <span class="expertise-number">01</span>
-            <h3>Store Structure</h3>
-            <p>Navigation, collections, products, pages and store organization.</p>
+            <h3 data-i18n="expertise.e1t">Store Structure</h3>
+            <p data-i18n="expertise.e1d">Navigation, collections, products, pages and store organization.</p>
           </div>
 
           <div class="expertise-item">
             <span class="expertise-number">02</span>
-            <h3>Shopify Theme Customization</h3>
-            <p>Liquid, HTML, CSS, responsive design and custom sections.</p>
+            <h3 data-i18n="expertise.e2t">Shopify Theme Customization</h3>
+            <p data-i18n="expertise.e2d">Liquid, HTML, CSS, responsive design and custom sections.</p>
           </div>
 
           <div class="expertise-item">
             <span class="expertise-number">03</span>
-            <h3>Product Management</h3>
-            <p>Product listings, variants, images, descriptions, tags and collections.</p>
+            <h3 data-i18n="expertise.e3t">Product Management</h3>
+            <p data-i18n="expertise.e3d">Product listings, variants, images, descriptions, tags and collections.</p>
           </div>
 
           <div class="expertise-item">
             <span class="expertise-number">04</span>
-            <h3>Conversion Optimization</h3>
-            <p>Better hierarchy, UX, CTAs and customer-focused landing pages.</p>
+            <h3 data-i18n="expertise.e4t">Conversion Optimization</h3>
+            <p data-i18n="expertise.e4d">Better hierarchy, UX, CTAs and customer-focused landing pages.</p>
           </div>
 
           <div class="expertise-item">
             <span class="expertise-number">05</span>
-            <h3>Mobile Experience</h3>
-            <p>Responsive layouts designed to work across phones, tablets and desktops.</p>
+            <h3 data-i18n="expertise.e5t">Mobile Experience</h3>
+            <p data-i18n="expertise.e5d">Responsive layouts designed to work across phones, tablets and desktops.</p>
           </div>
         </div>
       </div>
@@ -1385,48 +1521,48 @@
     <section class="section process">
       <div class="container process-grid">
         <div>
-          <div class="section-label">My Process</div>
-          <h2 class="section-title">From idea to finished store.</h2>
+          <div class="section-label" data-i18n="process.label">My Process</div>
+          <h2 class="section-title" data-i18n="process.title">From idea to finished store.</h2>
         </div>
 
         <div class="process-list">
           <div class="process-item">
             <span class="process-number">01</span>
             <div>
-              <h3>Discovery</h3>
-              <p>Understand the business, target audience, products and goals.</p>
+              <h3 data-i18n="process.p1t">Discovery</h3>
+              <p data-i18n="process.p1d">Understand the business, target audience, products and goals.</p>
             </div>
           </div>
 
           <div class="process-item">
             <span class="process-number">02</span>
             <div>
-              <h3>Planning</h3>
-              <p>Build the right store structure, navigation and content hierarchy.</p>
+              <h3 data-i18n="process.p2t">Planning</h3>
+              <p data-i18n="process.p2d">Build the right store structure, navigation and content hierarchy.</p>
             </div>
           </div>
 
           <div class="process-item">
             <span class="process-number">03</span>
             <div>
-              <h3>Development</h3>
-              <p>Customize Shopify themes, sections, pages and responsive layouts.</p>
+              <h3 data-i18n="process.p3t">Development</h3>
+              <p data-i18n="process.p3d">Customize Shopify themes, sections, pages and responsive layouts.</p>
             </div>
           </div>
 
           <div class="process-item">
             <span class="process-number">04</span>
             <div>
-              <h3>Optimization</h3>
-              <p>Improve usability, visual hierarchy, mobile experience and conversion.</p>
+              <h3 data-i18n="process.p4t">Optimization</h3>
+              <p data-i18n="process.p4d">Improve usability, visual hierarchy, mobile experience and conversion.</p>
             </div>
           </div>
 
           <div class="process-item">
             <span class="process-number">05</span>
             <div>
-              <h3>Launch</h3>
-              <p>Final checks, content review and preparation for a professional launch.</p>
+              <h3 data-i18n="process.p5t">Launch</h3>
+              <p data-i18n="process.p5d">Final checks, content review and preparation for a professional launch.</p>
             </div>
           </div>
         </div>
@@ -1438,10 +1574,10 @@
       <div class="container">
         <div class="cta-box">
           <div class="cta-content">
-            <div class="section-label">Let's Build Something</div>
-            <h2>Have a Shopify project in mind?</h2>
-            <p>Whether you need a new Shopify store, theme customization, landing page or ongoing e-commerce support, let's talk.</p>
-            <a href="#contact" class="button button-primary">Start a Conversation</a>
+            <div class="section-label" data-i18n="cta.label">Let's Build Something</div>
+            <h2 data-i18n="cta.title">Have a Shopify project in mind?</h2>
+            <p data-i18n="cta.description">Whether you need a new Shopify store, theme customization, landing page or ongoing e-commerce support, let's talk.</p>
+            <a href="#contact" class="button button-primary" data-i18n="cta.button">Start a Conversation</a>
           </div>
         </div>
       </div>
@@ -1451,9 +1587,9 @@
     <section class="section contact" id="contact">
       <div class="container contact-grid">
         <div>
-          <div class="section-label">Contact</div>
-          <h2 class="section-title">Let's work together.</h2>
-          <p class="contact-description">
+          <div class="section-label" data-i18n="contact.label">Contact</div>
+          <h2 class="section-title" data-i18n="contact.title">Let's work together.</h2>
+          <p class="contact-description" data-i18n="contact.description">
             Tell me what you're building, what you need help with, or what you'd like to improve. I'll get back to you as soon as possible.
           </p>
 
@@ -1463,7 +1599,7 @@
               <span>↗</span>
             </a>
             <a href="#" class="contact-link" title="LinkedIn — Available for collaboration">
-              <span>LinkedIn — Available for collaboration</span>
+              <span data-i18n="contact.linkedin">LinkedIn — Available for collaboration</span>
               <span>↗</span>
             </a>
           </div>
@@ -1471,12 +1607,12 @@
 
         <form class="contact-form" action="mailto:artak.mkrtchyan.98@mail.ru" method="post" enctype="text/plain">
           <div class="form-row">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
+            <input type="text" name="name" placeholder="Your name" required data-i18n-placeholder="contact.namePh">
+            <input type="email" name="email" placeholder="Your email" required data-i18n-placeholder="contact.emailPh">
           </div>
-          <input type="text" name="subject" placeholder="Project subject">
-          <textarea name="message" placeholder="Tell me about your Shopify project..." required></textarea>
-          <button type="submit" class="button submit-button">Send Message →</button>
+          <input type="text" name="subject" placeholder="Project subject" data-i18n-placeholder="contact.subjectPh">
+          <textarea name="message" placeholder="Tell me about your Shopify project..." required data-i18n-placeholder="contact.messagePh"></textarea>
+          <button type="submit" class="button submit-button" data-i18n="contact.submit">Send Message →</button>
         </form>
       </div>
     </section>
@@ -1486,20 +1622,408 @@
   <footer>
     <div class="container footer-inner">
       <div class="footer-logo">Artak Mkrtchyan</div>
-      <div class="footer-copy">© 2026 Mkrtchyan-Artak Mkrtchyan. All rights reserved.</div>
+      <div class="footer-copy" data-i18n="footer.copy">© 2026 Mkrtchyan-Artak Mkrtchyan. All rights reserved.</div>
       <div class="footer-socials">
-        <a href="mailto:artak.mkrtchyan.98@mail.ru">Email</a>
-        <a href="#contact">LinkedIn</a>
+        <a href="mailto:artak.mkrtchyan.98@mail.ru" data-i18n="footer.email">Email</a>
+        <a href="#contact" data-i18n="footer.linkedin">LinkedIn</a>
       </div>
     </div>
   </footer>
 
   <script>
+    // TRANSLATIONS
+    const translations = {
+      en: {
+        "nav.about": "About",
+        "nav.services": "Services",
+        "nav.projects": "Projects",
+        "nav.contact": "Contact",
+        "nav.cta": "Let's Work Together",
+        "hero.tag": "Shopify & E-commerce Specialist",
+        "hero.title": "I build Shopify<br>stores that <span class=\"accent\">convert.</span>",
+        "hero.description": "I'm Artak Mkrtchyan, a Shopify Developer and E-commerce Specialist focused on building, managing and optimizing professional Shopify stores.",
+        "hero.btn1": "View Services",
+        "hero.btn2": "Let's Work Together",
+        "hero.stat1": "Specialized",
+        "hero.stat2": "Focused",
+        "hero.stat3": "Conversion",
+        "hero.stat4": "Responsive",
+        "about.label": "About Me",
+        "about.title": "Shopify is more than a platform.",
+        "about.text1": "I'm a Shopify Developer and E-commerce Specialist focused on helping businesses create professional and effective online stores.",
+        "about.text2": "My work covers the full Shopify workflow — from store setup and theme customization to product uploads, landing page development, store management and conversion optimization.",
+        "about.text3": "I focus on clean design, responsive layouts, practical functionality and details that create a better customer experience.",
+        "about.highlightTitle": "Shopify Development + E-commerce",
+        "about.highlightSub": "Building, managing and optimizing online stores.",
+        "services.label": "What I Do",
+        "services.title": "Services built around Shopify.",
+        "services.description": "From the first store setup to ongoing optimization, I can handle the essential parts of your Shopify and e-commerce workflow.",
+        "services.s1t": "Shopify Development",
+        "services.s1d": "Custom Shopify pages, sections, layouts and functionality.",
+        "services.s2t": "Shopify Store Manager",
+        "services.s2d": "Store updates, content management, products and day-to-day operations.",
+        "services.s3t": "E Commerce Manager",
+        "services.s3d": "Managing the structure, content and customer-facing experience of your store.",
+        "services.s4t": "Product Upload/Product Listing",
+        "services.s4d": "Product uploads, descriptions, variants, images, tags and organization.",
+        "services.s5t": "Landing Page Development",
+        "services.s5d": "High-quality landing pages designed around clarity and conversions.",
+        "services.s6t": "CRO",
+        "services.s6d": "Improving layouts, content and customer journeys to increase conversions.",
+        "services.s7t": "Shopify Store Setup",
+        "services.s7d": "Initial Shopify configuration, structure, navigation and essential settings.",
+        "services.s8t": "Shopify Theme Edits",
+        "services.s8d": "Theme customization, Liquid, CSS, responsive layouts and visual improvements.",
+        "projects.label": "Selected Work",
+        "projects.title": "Projects that drive results.",
+        "projects.description": "A selection of recent Shopify and e-commerce projects — from conversion-focused landing pages to complete store builds.",
+        "projects.cat1": "Landing Page",
+        "projects.cat2": "Shopify Store",
+        "projects.viewBtn": "View Project",
+        "projects.p1t": "Black Friday Dining Room Landing Page",
+        "projects.p1d": "A conversion-focused Black Friday landing page for a premium dining room furniture collection, featuring elegant imagery, clear CTAs and a refined editorial layout.",
+        "projects.p2t": "LED Aroma Diffuser with Light",
+        "projects.p2d": "A minimalist product landing page for a home fragrance brand, combining sensory storytelling with clean typography and a dual CTA structure for Shop Now and Discover.",
+        "projects.p3t": "HOME GALLERY — Shopify Store",
+        "projects.p3d": "A complete Shopify storefront for a premium home furniture brand, featuring a refined hero, curated collections across Dining Room, Living Room and Bedroom categories.",
+        "expertise.label": "Expertise",
+        "expertise.title": "Focused on every important part of a Shopify store.",
+        "expertise.intro": "A combination of technical Shopify skills, e-commerce knowledge and attention to customer experience.",
+        "expertise.e1t": "Store Structure",
+        "expertise.e1d": "Navigation, collections, products, pages and store organization.",
+        "expertise.e2t": "Shopify Theme Customization",
+        "expertise.e2d": "Liquid, HTML, CSS, responsive design and custom sections.",
+        "expertise.e3t": "Product Management",
+        "expertise.e3d": "Product listings, variants, images, descriptions, tags and collections.",
+        "expertise.e4t": "Conversion Optimization",
+        "expertise.e4d": "Better hierarchy, UX, CTAs and customer-focused landing pages.",
+        "expertise.e5t": "Mobile Experience",
+        "expertise.e5d": "Responsive layouts designed to work across phones, tablets and desktops.",
+        "process.label": "My Process",
+        "process.title": "From idea to finished store.",
+        "process.p1t": "Discovery",
+        "process.p1d": "Understand the business, target audience, products and goals.",
+        "process.p2t": "Planning",
+        "process.p2d": "Build the right store structure, navigation and content hierarchy.",
+        "process.p3t": "Development",
+        "process.p3d": "Customize Shopify themes, sections, pages and responsive layouts.",
+        "process.p4t": "Optimization",
+        "process.p4d": "Improve usability, visual hierarchy, mobile experience and conversion.",
+        "process.p5t": "Launch",
+        "process.p5d": "Final checks, content review and preparation for a professional launch.",
+        "cta.label": "Let's Build Something",
+        "cta.title": "Have a Shopify project in mind?",
+        "cta.description": "Whether you need a new Shopify store, theme customization, landing page or ongoing e-commerce support, let's talk.",
+        "cta.button": "Start a Conversation",
+        "contact.label": "Contact",
+        "contact.title": "Let's work together.",
+        "contact.description": "Tell me what you're building, what you need help with, or what you'd like to improve. I'll get back to you as soon as possible.",
+        "contact.linkedin": "LinkedIn — Available for collaboration",
+        "contact.namePh": "Your name",
+        "contact.emailPh": "Your email",
+        "contact.subjectPh": "Project subject",
+        "contact.messagePh": "Tell me about your Shopify project...",
+        "contact.submit": "Send Message →",
+        "footer.copy": "© 2026 Mkrtchyan-Artak Mkrtchyan. All rights reserved.",
+        "footer.email": "Email",
+        "footer.linkedin": "LinkedIn",
+        "langName": "English"
+      },
+      hy: {
+        "nav.about": "Իմ մասին",
+        "nav.services": "Ծառայություններ",
+        "nav.projects": "Նախագծեր",
+        "nav.contact": "Կապ",
+        "nav.cta": "Եկեք աշխատենք միասին",
+        "hero.tag": "Shopify-ի և էլեկտրոնային առևտրի մասնագետ",
+        "hero.title": "Ես ստեղծում եմ Shopify<br>խանութներ, որոնք <span class=\"accent\">վաճառում են:</span>",
+        "hero.description": "Ես Արտակ Մկրտչյանն եմ Shopify-ի մշակող և էլեկտրոնային առևտրի մասնագետ, որը կենտրոնացած է պրոեսիոնալ Shopify խանութների ստեղծման, կառավարման և օպտիմալացման վրա:",
+        "hero.btn1": "Դիտել առայությունները",
+        "hero.btn2": "Եկեք աշխատենք միասին",
+        "hero.stat1": "Մասնագիտացված",
+        "hero.stat2": "ենտրոնացված",
+        "hero.stat3": "Փոխակերպում",
+        "hero.stat4": "Ադապտիվ",
+        "about.label": "Իմ մասին",
+        "about.title": "Shopify-ն ավելին է, քան պլատֆորմ:",
+        "about.text1": "Ես Shopify-ի մշակող և էլեկտրոնային առևտրի մասնագետ եմ՝ կենտրոնացած բիզնեսներին պրոեսիոնալ և արդյունավետ առցանց անութներ ստեղծելու օգնելու վրա:",
+        "about.text2": "Իմ աշխատանքը ընդգրկում է Shopify-ի ամբողջական աշխատանքային հոսքը՝ խանութի կարգավորումից և թեմայի անհատականացումից մինչև ապրանքների բեռնում, նպատակային էջերի մշակում, խանութի կառավարում և փոխակերպման օպտիմալացում:",
+        "about.text3": "Ես կենտրոնանում եմ մաքուր դիզայնի, ադապտիվ դասավորությունների, գործնական ունկցիոնալության և մանրամասների վրա, որոնք ստեղծում են ավելի լավ հաճախորդական փորձ:",
+        "about.highlightTitle": "Shopify մշակում + Էլեկտրոնային առևտուր",
+        "about.highlightSub": "Առցանց խանութների ստեղծում, կառավարում և օպտիմալացում:",
+        "services.label": "Ինչ եմ ես անում",
+        "services.title": "Ծառայություններ Shopify-ի շուրջ:",
+        "services.description": "Առաջին խանութի կարգավորումից մինչև շարունակական օպտիմալացում, ես կարող եմ կառավարել ձեր Shopify-ի և էլեկտրոնային առևտրի աշխատանքային հոսքի կարևոր մասերը:",
+        "services.s1t": "Shopify մշակում",
+        "services.s1d": "Անհատական Shopify էջեր, բաժիններ, դասավորություններ և ֆունկցիոնալություն:",
+        "services.s2t": "Shopify խանութի կառավարիչ",
+        "services.s2d": "Խանութի թարմացումներ, բովանդակության կառավարում, ապրանքներ և օրական գործառնություններ:",
+        "services.s3t": "Էլեկտրոնային առևտրի կառավարիչ",
+        "services.s3d": "Ձեր խանութի կառուցվածքի, բովանդակության և հաճախորդների համար նախատեսված փորձի կառավարում:",
+        "services.s4t": "Ապրանքի բեռնում/ցուցակում",
+        "services.s4d": "Ապրանքների բեռնում, նկարագրություններ, տարբերակներ, պատկերներ, պիտակներ և կազմակերպում:",
+        "services.s5t": "Նպատակային էջերի մշակում",
+        "services.s5d": "Բարձր որակի նպատակային էջեր նախագծված հստակության և փոխակերպումների շուրջ:",
+        "services.s6t": "CRO",
+        "services.s6d": "Դասավորությունների, բովանդակության և հաճախորդների ուղիների բարելավում՝ փոխակերպումները մեծացնելու համար:",
+        "services.s7t": "Shopify խանութի կարգավորում",
+        "services.s7d": "Սկզբնական Shopify կոնիգուրացիա, կառուցվածք, նավիգացիա և կարևոր կարգավորումներ:",
+        "services.s8t": "Shopify թեմայի խմբագրումներ",
+        "services.s8d": "Թեմայի անհատականացում, Liquid, CSS, ադապտիվ դասավորություններ և տեսողական բարելավումներ:",
+        "projects.label": "Ընտրված աշխատանքներ",
+        "projects.title": "Նախագծեր, որոնք արդյունքներ են տալիս:",
+        "projects.description": "Վերջին Shopify-ի և էլեկտրոնային առևտրի նախագծերի ընտրություն՝ փոխակերպման վրա կենտրոնացած նպատակային էջերից մինչև ամբողջական խանութների կառուցում:",
+        "projects.cat1": "պատակային էջ",
+        "projects.cat2": "Shopify խանութ",
+        "projects.viewBtn": "Դիտել նախագիծը",
+        "projects.p1t": "Black Friday աշասենյակի նպատակային էջ",
+        "projects.p1d": "Պրեմիում էլեկտրոնային առևտրի նպատակային էջ ստեղծված ճաշասենյակի կահույքի արշավի համար՝ ուեղ տեսողական հերոսի բաժնով, գովազդային հաղորդագրություններով, հստակ գործողության կոչերով և ադապտիվ դիզայնով:",
+        "projects.p2t": "LED Արոմա դիֆուզոր լույսով",
+        "projects.p2d": "Մինիմալիստական ապրանքային նպատակային էջ՝ տան օծանելիքի ապրանքանիշի համար, համադրելով զգայական պատմությունը մաքուր տիպոգրաֆիայի և կրկնակի CTA կառուցվածքի հետ:",
+        "projects.p3t": "HOME GALLERY — Shopify անութ",
+        "projects.p3d": "Ամբողջական Shopify էլեկտրոնային առևտրի խանութ՝ կահույքի և տան դեկորի ապրանքանիշի համար, ներառյալ Shopify խանութի կարգավորում, թեմայի անհատականացում, ապրանքների կազմակերպում, հավաքածուներ, նավիգացիա, ադապտիվ դիզայն և էլեկտրոնային առևտրի ֆունկցիոնալություն:",
+        "expertise.label": "Փորձաքննություն",
+        "expertise.title": "Կենտրոնացած Shopify խանութի յուրաքանչյուր կարևոր մասի վրա:",
+        "expertise.intro": "Տեխնիկական Shopify հմտությունների, էլեկտրոնային առևտրի գիտելիքների և հաճախորդների փորի նկատմամբ ուշադրության համադրություն:",
+        "expertise.e1t": "Խանութի կառուցվածք",
+        "expertise.e1d": "Նավիգացիա, հավաքածուներ, ապրանքներ, էջեր և խանութի կազմակերպում:",
+        "expertise.e2t": "Shopify թեմայի անհատականացում",
+        "expertise.e2d": "Liquid, HTML, CSS, ադապտիվ դիզայն և անհատական բաժիններ:",
+        "expertise.e3t": "Ապրանքների կառավարում",
+        "expertise.e3d": "Ապրանքների ցուցակներ, տարբերակներ, պատկերներ, նկարագրություններ, պիտակներ և հավաքածուներ:",
+        "expertise.e4t": "Փոխակերպման օպտիմալացում",
+        "expertise.e4d": "Լավագույն հիերարխիա, UX, CTA-ներ և հաճախորդների վրա կենտրոնացած նպատակային էջեր:",
+        "expertise.e5t": "Բջջային փորձ",
+        "expertise.e5d": "Ադապտիվ դասավորություններ՝ նախագծված հեռախոսների, պլանշետների և աշխատասեղանների վրա աշխատելու համար:",
+        "process.label": "մ գործընթացը",
+        "process.title": "Գաղափարից մինչև ավարտված խանութ:",
+        "process.p1t": "Հայտնաբերում",
+        "process.p1d": "Հասկանալ բիզնեսը, թիրախային լսարանը, ապրանքները և նպատակները:",
+        "process.p2t": "Պլանավորում",
+        "process.p2d": "Կառուցել ճիշտ խանութի կառուցվածքը, նավիգացիան և բովանդակության հիերարխիան:",
+        "process.p3t": "շակում",
+        "process.p3d": "Անհատականացնել Shopify եմաները, բաժինները, էջերը և ադապտիվ դասավորությունները:",
+        "process.p4t": "Օպտիմալացում",
+        "process.p4d": "Բարելավել օգտագործելիությունը, տեսողական հիերարխիան, բջջային փորը և փոխակերպումը:",
+        "process.p5t": "Գործարկում",
+        "process.p5d": "Վերջնական ստուգումներ, բովանդակության վերանայում և պրոֆեսիոնալ գործարկման նախապատրաստում:",
+        "cta.label": "Եկեք կառուցենք ինչ-որ բան",
+        "cta.title": "ւնե՞ք Shopify նախագիծ մտքում:",
+        "cta.description": "Անկախ նրանից՝ ձեզ անհրաժեշտ է նոր Shopify խանութ, թեմայի անհատականացում, նպատակային էջ, թե շարունակական էլեկտրոնային առևտրի աջակցություն, եկեք խոսենք:",
+        "cta.button": "Սկսել զրույց",
+        "contact.label": "Կապ",
+        "contact.title": "Եկեք աշխատենք միասին:",
+        "contact.description": "ատմեք ինձ, ե ինչ եք կառուցում, ինչի՞ հետ եք օգնության կարիք ունեցել, կամ ինչ կցանկանայիք բարելավել: Ես կպատասխանեմ ձեզ որքան հնարավոր է շուտ:",
+        "contact.linkedin": "LinkedIn — Հասանելի համագործակցության համար",
+        "contact.namePh": "Ձեր անունը",
+        "contact.emailPh": "Ձեր էլ. հասցեն",
+        "contact.subjectPh": "Նախագծի թեմա",
+        "contact.messagePh": "Պատմեք նձ ձեր Shopify նախագծի մասին...",
+        "contact.submit": "Ուղարկել հաղորդագրություն →",
+        "footer.copy": "© 2026 Mkrtchyan-Artak Mkrtchyan. Բոլոր իրավունքները պաշտպանված են:",
+        "footer.email": "Էլ. փոստ",
+        "footer.linkedin": "LinkedIn",
+        "langName": "Հայերեն"
+      },
+      ru: {
+        "nav.about": "Обо мне",
+        "nav.services": "Услуги",
+        "nav.projects": "Проекты",
+        "nav.contact": "Контакты",
+        "nav.cta": "Давайте работать вместе",
+        "hero.tag": "Специалист по Shopify и электронной коммерции",
+        "hero.title": "Я создаю Shopify<br>магазины, которые <span class=\"accent\">продают.</span>",
+        "hero.description": "Я Артак Мкртчян, Shopify разработчик и специалист по электронной коммерции, сосредоточенный на создании, управлении и оптимизации профессиональных Shopify магазинов.",
+        "hero.btn1": "Посмотреть услуги",
+        "hero.btn2": "Давайте работать вместе",
+        "hero.stat1": "Специализация",
+        "hero.stat2": "Фокус",
+        "hero.stat3": "Конверсия",
+        "hero.stat4": "Адаптивность",
+        "about.label": "Обо мне",
+        "about.title": "Shopify — это больше, чем платформа.",
+        "about.text1": "Я Shopify разработчик и специалист по электронной коммерции, сосредоточенный на помощи бизнесу в создании профессиональных и эффективных онлайн магазинов.",
+        "about.text2": "Моя работа охватывает полный рабочий процесс Shopify — от настройки магазина и кастомизации темы до загрузки товаров, разработки лендингов, управления магазином и оптимизации конверсии.",
+        "about.text3": "Я фокусируюсь на чистом дизайне, адаптивных макетах, практичной функциональности и деталях, которые создают лучший пользовательский опыт.",
+        "about.highlightTitle": "Разработка Shopify + Электронная коммерция",
+        "about.highlightSub": "Создание, управление и оптимизация онлайн магазинов.",
+        "services.label": "Что я делаю",
+        "services.title": "Услуги, построенные вокруг Shopify.",
+        "services.description": "От первой настройки магазина до постоянной оптимизации, я могу взять на себя важные части вашего рабочего процесса Shopify и электронной коммерции.",
+        "services.s1t": "Разработка Shopify",
+        "services.s1d": "Пользовательские страницы, секции, макеты и функциональность Shopify.",
+        "services.s2t": "Менеджер магазина Shopify",
+        "services.s2d": "Обновления магазина, управление контентом, товары и повседневные операции.",
+        "services.s3t": "Менеджер электронной коммерции",
+        "services.s3d": "Управление структурой, контентом и клиентским опытом вашего магазина.",
+        "services.s4t": "Загрузка товаров/Списки товаров",
+        "services.s4d": "Загрузка товаров, описания, варианты, изображения, теги и организация.",
+        "services.s5t": "Разработка лендингов",
+        "services.s5d": "Высококачественные лендинги, разработанные с учетом ясности и конверсии.",
+        "services.s6t": "CRO",
+        "services.s6d": "Улучшение макетов, контента и клиентских путей для увеличения конверсии.",
+        "services.s7t": "Настройка магазина Shopify",
+        "services.s7d": "Начальная конфигурация Shopify, структура, навигация и основные настройки.",
+        "services.s8t": "Редактирование тем Shopify",
+        "services.s8d": "Кастомизация тем, Liquid, CSS, адаптивные макеты и визуальные улучшения.",
+        "projects.label": "Избранные работы",
+        "projects.title": "Проекты, которые приносят результаты.",
+        "projects.description": "Подборка недавних проектов Shopify и электронной коммерции — от лендингов, ориентированных на конверсию, до полноценных магазинов.",
+        "projects.cat1": "Лендинг",
+        "projects.cat2": "Магазин Shopify",
+        "projects.viewBtn": "Посмотреть проект",
+        "projects.p1t": "Лендинг Black Friday для столовой",
+        "projects.p1d": "Премиальный лендинг электронной коммерции, созданный для кампании мебели для столовой, с сильной визуальной секцией, рекламными сообщениями, четкими призывами к действию и адаптивным дизайном.",
+        "projects.p2t": "LED Аромадиффузор со светом",
+        "projects.p2d": "Минималистичный продуктовый лендинг для бренда домашних ароматов, сочетающий сенсорное повествование с чистой типографикой и двойной структурой CTA для Shop Now и Discover.",
+        "projects.p3t": "HOME GALLERY — Магазин Shopify",
+        "projects.p3d": "Полноценный магазин электронной коммерции Shopify для бренда мебели и домашнего декора, включая настройку магазина, кастомизацию темы, организацию товаров, коллекции, навигацию, адаптивный дизайн и функциональность электронной коммерции.",
+        "expertise.label": "Экспертиза",
+        "expertise.title": "Фокус на каждой важной части магазина Shopify.",
+        "expertise.intro": "Сочетание технических навыков Shopify, знаний электронной коммерции и внимания к пользовательскому опыту.",
+        "expertise.e1t": "Структура магазина",
+        "expertise.e1d": "Навигация, коллекции, товары, страницы и организация магазина.",
+        "expertise.e2t": "Кастомизация тем Shopify",
+        "expertise.e2d": "Liquid, HTML, CSS, адаптивный дизайн и пользовательские секции.",
+        "expertise.e3t": "Управление товарами",
+        "expertise.e3d": "Списки товаров, варианты, изображения, описания, теги и коллекции.",
+        "expertise.e4t": "Оптимизация конверсии",
+        "expertise.e4d": "Лучшая иерархия, UX, CTA и лендинги, ориентированные на клиента.",
+        "expertise.e5t": "Мобильный опыт",
+        "expertise.e5d": "Адаптивные макеты, разработанные для работы на телефонах, планшетах и десктопах.",
+        "process.label": "Мой процесс",
+        "process.title": "От идеи до готового магазина.",
+        "process.p1t": "Исследование",
+        "process.p1d": "Понимание бизнеса, целевой аудитории, продуктов и целей.",
+        "process.p2t": "Планирование",
+        "process.p2d": "Построение правильной структуры магазина, навигации и иерархии контента.",
+        "process.p3t": "Разработка",
+        "process.p3d": "Кастомизация тем, секций, страниц и адаптивных макетов Shopify.",
+        "process.p4t": "Оптимизация",
+        "process.p4d": "Улучшение юзабилити, визуальной иерархии, мобильного опыта и конверсии.",
+        "process.p5t": "Запуск",
+        "process.p5d": "Финальные проверки, обзор контента и подготовка к профессиональному запуску.",
+        "cta.label": "Давайте создадим что-то",
+        "cta.title": "Есть проект Shopify в голове?",
+        "cta.description": "Независимо от того, нужен ли вам новый магазин Shopify, кастомизация темы, лендинг или постоянная поддержка электронной коммерции, давайте поговорим.",
+        "cta.button": "Начать разговор",
+        "contact.label": "Контакты",
+        "contact.title": "Давайте работать вместе.",
+        "contact.description": "Расскажите мне, что вы строите, с чем вам нужна помощь или что вы хотели бы улучшить. Я отвечу вам как можно скорее.",
+        "contact.linkedin": "LinkedIn — Доступен для сотрудничества",
+        "contact.namePh": "Ваше имя",
+        "contact.emailPh": "Ваш email",
+        "contact.subjectPh": "Тема проекта",
+        "contact.messagePh": "Расскажите о вашем проекте Shopify...",
+        "contact.submit": "Отправить сообщение →",
+        "footer.copy": "© 2026 Mkrtchyan-Artak Mkrtchyan. Все права защищены.",
+        "footer.email": "Email",
+        "footer.linkedin": "LinkedIn",
+        "langName": "Русский"
+      }
+    };
+
+    const flagMap = {
+      en: '🇬🇧',
+      hy: '🇲',
+      ru: '🇺'
+    };
+
+    // Language switching logic
+    const langTrigger = document.getElementById('langTrigger');
+    const langDropdown = document.getElementById('langDropdown');
+    const langFlag = document.getElementById('langFlag');
+    const langLabel = document.getElementById('langLabel');
+    const langOptions = document.querySelectorAll('.lang-option');
+
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+
+      // Update text content
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key] !== undefined) {
+          el.placeholder = translations[lang][key];
+        }
+      });
+
+      // Update flag and label
+      langFlag.textContent = flagMap[lang];
+      langLabel.textContent = translations[lang].langName;
+
+      // Update active state in dropdown
+      langOptions.forEach(opt => {
+        if (opt.getAttribute('data-lang') === lang) {
+          opt.classList.add('active');
+        } else {
+          opt.classList.remove('active');
+        }
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+
+      // Save to localStorage
+      localStorage.setItem('portfolioLanguage', lang);
+    }
+
+    // Toggle dropdown
+    langTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = langDropdown.classList.toggle('active');
+      langTrigger.classList.toggle('active', isActive);
+      langTrigger.setAttribute('aria-expanded', isActive);
+    });
+
+    // Language option click
+    langOptions.forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const lang = option.getAttribute('data-lang');
+        setLanguage(lang);
+        langDropdown.classList.remove('active');
+        langTrigger.classList.remove('active');
+        langTrigger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!langDropdown.contains(e.target) && e.target !== langTrigger && !langTrigger.contains(e.target)) {
+        langDropdown.classList.remove('active');
+        langTrigger.classList.remove('active');
+        langTrigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        langDropdown.classList.remove('active');
+        langTrigger.classList.remove('active');
+        langTrigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Load saved language on page load
+    const savedLang = localStorage.getItem('portfolioLanguage') || 'en';
+    setLanguage(savedLang);
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({
             behavior: 'smooth',
