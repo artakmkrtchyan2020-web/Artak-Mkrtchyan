@@ -564,7 +564,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      border-radius: 4px;
+      border-radius: 8px;
     }
 
     .project-card::before {
@@ -575,7 +575,7 @@
       transition: border-color 0.4s ease;
       pointer-events: none;
       z-index: 3;
-      border-radius: 4px;
+      border-radius: 8px;
     }
 
     .project-card:hover {
@@ -589,7 +589,62 @@
     }
 
     .project-image {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      position: relative;
+      background: var(--dark-3);
+      padding: 12px 12px 0 12px;
+    }
+
+    .project-image .browser-frame {
+      width: 100%;
+      height: 100%;
+      background: #1e1e1e;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: none;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-image .browser-bar {
+      height: 28px;
+      background: #2a2a2a;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 6px;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .project-image .browser-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .project-image .browser-dot.red { background: #ff5f57; }
+    .project-image .browser-dot.yellow { background: #febc2e; }
+    .project-image .browser-dot.green { background: #28c840; }
+
+    .project-image .browser-url {
+      margin-left: 12px;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.35);
+      font-family: 'Inter', sans-serif;
+      flex: 1;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 3px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .project-image .browser-content {
+      flex: 1;
       overflow: hidden;
       position: relative;
       background: var(--dark-3);
@@ -599,12 +654,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top center;
       transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
       display: block;
     }
 
     .project-card:hover .project-image img {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
     .project-category {
@@ -1182,14 +1238,14 @@
           <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
           <li><a href="#contact" class="nav-cta" data-i18n="nav.cta">Let's Work Together</a></li>
           <li class="lang-selector">
-            <button class="lang-flag" id="langFlag" aria-label="Language selector" aria-expanded="false" aria-haspopup="true">🇬</button>
+            <button class="lang-flag" id="langFlag" aria-label="Language selector" aria-expanded="false" aria-haspopup="true">🇦🇲</button>
             <div class="lang-dropdown" id="langDropdown" role="menu">
               <button class="lang-option" data-lang="en" role="menuitem">
-                <span class="flag">🇬🇧</span>
+                <span class="flag">🇬</span>
                 <span>English</span>
               </button>
               <button class="lang-option" data-lang="am" role="menuitem">
-                <span class="flag">🇦</span>
+                <span class="flag">🇦🇲</span>
                 <span>Հայերեն</span>
               </button>
               <button class="lang-option" data-lang="ru" role="menuitem">
@@ -1383,7 +1439,17 @@
           <article class="project-card">
             <div class="project-image">
               <span class="project-category" data-i18n="projects.cat1">Landing Page</span>
-              <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/1ff1574dd-d5fe-4a47-b381-8e2240f4040a.png" alt="Black Friday Dining Room Landing Page preview" loading="lazy">
+              <div class="browser-frame">
+                <div class="browser-bar">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                  <span class="browser-url">artak-mkrtchyan.myshopify.com/pages/bf</span>
+                </div>
+                <div class="browser-content">
+                  <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/1ff1574dd-d5fe-4a47-b381-8e2240f4040a.png" alt="Black Friday Dining Room Landing Page preview" loading="lazy">
+                </div>
+              </div>
             </div>
             <div class="project-content">
               <span class="project-number">01 / 03</span>
@@ -1402,7 +1468,17 @@
           <article class="project-card">
             <div class="project-image">
               <span class="project-category" data-i18n="projects.cat1">Landing Page</span>
-              <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/176d25cf2-b91b-4e61-9120-8aabce4fddaa.png" alt="LED Aroma Diffuser with Light landing page preview" loading="lazy">
+              <div class="browser-frame">
+                <div class="browser-bar">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                  <span class="browser-url">artak-mkrtchyan.myshopify.com/pages/landing-page</span>
+                </div>
+                <div class="browser-content">
+                  <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/176d25cf2-b91b-4e61-9120-8aabce4fddaa.png" alt="LED Aroma Diffuser with Light landing page preview" loading="lazy">
+                </div>
+              </div>
             </div>
             <div class="project-content">
               <span class="project-number">02 / 03</span>
@@ -1421,7 +1497,17 @@
           <article class="project-card">
             <div class="project-image">
               <span class="project-category" data-i18n="projects.cat2">Shopify Store</span>
-              <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/14a400141-1e4e-40ca-bc12-c6c4a3acf912.png" alt="HOME GALLERY Shopify Store preview" loading="lazy">
+              <div class="browser-frame">
+                <div class="browser-bar">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                  <span class="browser-url">artak-mkrtchyan.myshopify.com</span>
+                </div>
+                <div class="browser-content">
+                  <img src="https://image.qwenlm.ai/public_source/014d189a-8bf3-40fe-80bd-93edb387c4d0/14a400141-1e4e-40ca-bc12-c6c4a3acf912.png" alt="HOME GALLERY Shopify Store preview" loading="lazy">
+                </div>
+              </div>
             </div>
             <div class="project-content">
               <span class="project-number">03 / 03</span>
@@ -1702,7 +1788,7 @@
       am: {
         "nav.about": "Իմ մասին",
         "nav.services": "առայություններ",
-        "nav.projects": "Նախագծեր",
+        "nav.projects": "ախագծեր",
         "nav.contact": "Կապ",
         "nav.cta": "Եկեք աշխատենք միասին",
         "hero.tag": "Shopify-ի և էլեկտրոնային առևտրի մասնագետ",
@@ -1710,7 +1796,7 @@
         "hero.h1b": "խանութներ, որոնք ",
         "hero.h1c": "վաճառում են:",
         "hero.description": "Ես Արտակ Մկրտչյանն եմ, Shopify-ի մշակող և էլեկտրոնային առևտրի մասնագետ, որը կենտրոնացած է պրոֆեսիոնալ Shopify խանութների ստեղծման, կառավարման և օպտիմալացման վրա:",
-        "hero.btn1": "Դիտել ծառայությունները",
+        "hero.btn1": "իտել ծառայությունները",
         "hero.btn2": "Եկեք աշխատենք միասին",
         "hero.stat1": "Մասնագիտացված",
         "hero.stat2": "Կենտրոնացված",
@@ -1718,8 +1804,8 @@
         "hero.stat4": "Ադապտիվ",
         "about.label": "Իմ մասին",
         "about.title": "Shopify-ն ավելին է, քան պլատֆորմ:",
-        "about.text1": "Ես Shopify-ի մշակող և էլեկտրոնային առևտրի մասնագետ եմ կենտրոնացած բիզնեսներին պրոեսիոնալ և արդյունավետ առցանց խանութներ ստեղծելու օգնելու վրա:",
-        "about.text2": "Իմ աշխատանքը ընդգրկում է Shopify-ի ամբողջական աշխատանքային հոսքը՝ խանութի կարգավորումից և թեմայի անհատականացումից մինչև ապրանքների բեռնում, նպատակային էջերի մշակում, խանութի կառավարում և փոխակերպման օպտիմալացում:",
+        "about.text1": "Ես Shopify-ի մշակող և էլեկտրոնային առևտրի մասնագետ եմ կենտրոնացած բիզնեսներին պրոեսիոնալ և արդյունավետ առցանց անութներ ստեղծելու օգնելու վրա:",
+        "about.text2": "Իմ աշխատանքը ընդգրկում է Shopify-ի ամբողջական աշխատանքային հոսքը՝ խանութի կարգավորումից և թեմայի անհատականացումից մինչև ապրանքների բեռնում, նպատակային էջերի մշակում, խանութի կառավարում և ոխակերպման օպտիմալացում:",
         "about.text3": "Ես կենտրոնանում եմ մաքուր դիզայնի, ադապտիվ դասավորությունների, գործնական ֆունկցիոնալության և մանրամասների վրա, որոնք ստեղծում են ավելի լավ հաճախորդական փորձ:",
         "about.highlightTitle": "Shopify մշակում + Էլեկտրոնային առևտուր",
         "about.highlightSub": "Առցանց անութների ստեղծում, կառավարում և օպտիմալացում:",
@@ -1729,7 +1815,7 @@
         "services.s1t": "Shopify մշակում",
         "services.s1d": "Անհատական Shopify էջեր, բաժիններ, դասավորություններ և ֆունկցիոնալություն:",
         "services.s2t": "Shopify խանութի կառավարիչ",
-        "services.s2d": "Խանութի թարմացումներ, բովանդակության կառավարում, ապրանքներ և օրական գործառնություններ:",
+        "services.s2d": "Խանութի արմացումներ, բովանդակության կառավարում, ապրանքներ և օրական գործառնություններ:",
         "services.s3t": "Էլեկտրոնային առևտրի կառավարիչ",
         "services.s3d": "Ձեր խանութի կառուցվածքի, բովանդակության և հաճախորդների համար նախատեսված փորձի կառավարում:",
         "services.s4t": "Ապրանքի բեռնում/ցուցակում",
@@ -1737,29 +1823,29 @@
         "services.s5t": "Նպատակային էջերի մշակում",
         "services.s5d": "արձր որակի նպատակային էջեր՝ նախագծված հստակության և փոխակերպումների շուրջ:",
         "services.s6t": "CRO",
-        "services.s6d": "Դասավորությունների, բովանդակության և հաճախորդների ուղիների բարելավում՝ փոխակերպումները մեծացնելու համար:",
+        "services.s6d": "ասավորությունների, բովանդակության և հաճախորդների ուղիների բարելավում՝ փոխակերպումները մեծացնելու համար:",
         "services.s7t": "Shopify խանութի կարգավորում",
         "services.s7d": "Սկզբնական Shopify կոնֆիգուրացիա, կառուցվածք, նավիգացիա և կարևոր կարգավորումներ:",
-        "services.s8t": "Shopify թեմայի խմբագրումներ",
-        "services.s8d": "Թեմայի անհատականացում, Liquid, CSS, ադապտիվ դասավորություններ և տեսողական բարելավումներ:",
+        "services.s8t": "Shopify եմայի խմբագրումներ",
+        "services.s8d": "եմայի անհատականացում, Liquid, CSS, ադապտիվ դասավորություններ և տեսողական բարելավումներ:",
         "projects.label": "Ընտրված աշխատանքներ",
         "projects.title": "Նախագծեր, որոնք արդյունքներ են տալիս:",
-        "projects.description": "Վերջին Shopify-ի և էլեկտրոնային առևտրի նախագծերի ընտրություն՝ փոխակերպման վրա կենտրոնացած նպատակային էջերից մինչև ամբողջական խանութների կառուցում:",
+        "projects.description": "Վերջին Shopify-ի և էլեկտրոնային առևտրի նախագծերի ընտրություն՝ փոխակերպման վրա կենտրոնացած նպատակային էջերից մինչև ամբողջական անութների կառուցում:",
         "projects.cat1": "պատակային էջ",
         "projects.cat2": "Shopify խանութ",
         "projects.viewBtn": "Դիտել նախագիծը",
         "projects.p1t": "Black Friday ճաշասենյակի նպատակային էջ",
-        "projects.p1d": "Պրեմիում էլեկտրոնային առևտրի նպատակային էջ՝ ստեղծված ճաշասենյակի կահույքի արշավի համար՝ ուժեղ տեսողական հերոսի բաժնով, գովազդային հաղորդագրություններով, հստակ գործողության կոչերով և ադապտիվ դիզայնով:",
-        "projects.p2t": "LED Արոմա դիֆուզոր լույսով",
+        "projects.p1d": "Պրեմիում էլեկտրոնային առևտրի նպատակային էջ՝ ստեղծված աշասենյակի կահույքի արշավի համար՝ ուժեղ տեսողական հերոսի բաժնով, գովազդային հաղորդագրություններով, հստակ գործողության կոչերով և ադապտիվ դիզայնով:",
+        "projects.p2t": "LED Արոմա դիֆուզոր ույսով",
         "projects.p2d": "Մինիմալիստական ապրանքային նպատակային էջ՝ տան օծանելիքի ապրանքանիշի համար համադրելով գայական պատմությունը մաքուր տիպոգրաֆիայի և կրկնակի CTA կառուցվածքի հետ:",
         "projects.p3t": "HOME GALLERY — Shopify խանութ",
-        "projects.p3d": "Ամբողջական Shopify էլեկտրոնային առևտրի անութ՝ կահույքի և տան դեկորի ապրանքանիշի համար, ներառյալ Shopify խանութի կարգավորում, թեմայի անհատականացում, ապրանքների կազմակերպում, հավաքածուներ, նավիգացիա, ադապտիվ դիզայն և էլեկտրոնային առևտրի ֆունկցիոնալություն:",
-        "expertise.label": "Փորաքննություն",
+        "projects.p3d": "Ամբողջական Shopify էլեկտրոնային առևտրի անութ՝ կահույքի և տան դեկորի ապրանքանիշի համար, ներառյալ Shopify անութի կարգավորում, թեմայի անհատականացում, ապրանքների կազմակերպում, հավաքածուներ, նավիգացիա, ադապտիվ դիզայն և էլեկտրոնային առևտրի ֆունկցիոնալություն:",
+        "expertise.label": "որաքննություն",
         "expertise.title": "Կենտրոնացած Shopify խանութի յուրաքանչյուր կարևոր մասի վրա:",
-        "expertise.intro": "Տեխնիկական Shopify հմտությունների, էլեկտրոնային առևտրի գիտելիքների և հաճախորդների փորձի նկատմամբ ուշադրության համադրություն:",
+        "expertise.intro": "եխնիկական Shopify հմտությունների, էլեկտրոնային առևտրի գիտելիքների և հաճախորդների փորձի նկատմամբ ուշադրության համադրություն:",
         "expertise.e1t": "Խանութի կառուցվածք",
         "expertise.e1d": "Նավիգացիա, հավաքածուներ, ապրանքներ, էջեր և անութի կազմակերպում:",
-        "expertise.e2t": "Shopify թեմայի անհատականացում",
+        "expertise.e2t": "Shopify եմայի անհատականացում",
         "expertise.e2d": "Liquid, HTML, CSS, ադապտիվ դիզայն և անհատական բաժիններ:",
         "expertise.e3t": "Ապրանքների կառավարում",
         "expertise.e3d": "Ապրանքների ցուցակներ, տարբերակներ, պատկերներ, նկարագրություններ, պիտակներ և հավաքածուներ:",
@@ -1781,14 +1867,14 @@
         "process.p5d": "Վերջնական ստուգումներ, բովանդակության վերանայում և պրոֆեսիոնալ գործարկման նախապատրաստում:",
         "cta.label": "Եկեք կառուցենք ինչ-որ բան",
         "cta.title": "ւնե՞ք Shopify նախագիծ մտքում:",
-        "cta.description": "Անկախ նրանից՝ ձեզ անհրաժեշտ է նոր Shopify խանութ, թեմայի անհատականացում, նպատակային էջ, թե շարունակական էլեկտրոնային առևտրի աջակցություն, եկեք ոսենք:",
+        "cta.description": "Անկախ նրանից՝ ձեզ անհրաժեշտ է նոր Shopify խանութ, եմայի անհատականացում, նպատակային էջ, թե շարունակական էլեկտրոնային առևտրի աջակցություն, եկեք ոսենք:",
         "cta.button": "Սկսել զրույց",
         "contact.label": "ապ",
         "contact.title": "կեք աշխատենք միասին:",
         "contact.description": "ատմեք ինձ, թե ինչ եք կառուցում, ինչի՞ հետ եք օգնության կարիք ունեցել, կամ ինչ կցանկանայիք բարելավել: Ես կպատասխանեմ եզ որքան հնարավոր է շուտ:",
         "contact.linkedin": "LinkedIn — Հասանելի համագործակցության համար",
         "contact.namePh": "Ձեր անունը",
-        "contact.emailPh": "Ձեր էլ. հասցեն",
+        "contact.emailPh": "եր էլ. հասցեն",
         "contact.subjectPh": "Նախագծի եմա",
         "contact.messagePh": "Պատմեք ին ձեր Shopify նախագծի մասին...",
         "contact.submit": "Ուղարկել հաղորդագրություն →",
